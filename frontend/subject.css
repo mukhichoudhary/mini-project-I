@@ -1,0 +1,618 @@
+/* =========================================================
+   BHASHA_AI - ROYAL SUBJECT / CURRICULUM STYLES
+   Royal Brown & Beige Palette • Zero Shading
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --royal-beige-bg: #F6F3EB;
+    --royal-beige-surface: #EEF5EB;
+    --royal-beige-border: #D7E3D8;
+    --royal-beige-dark: #1A281C;
+    --royal-beige-muted: #5D705F;
+
+    --royal-brown-deep: #122415;
+    --royal-brown-card: #18331D;
+    --royal-brown-border: #27472D;
+    --royal-brown-text: #FFFFFF;
+    --royal-brown-muted: #A5D6A7;
+
+    --royal-gold: #2E7D32;
+    --royal-gold-bright: #81C784;
+    --royal-gold-soft: rgba(46, 125, 50, 0.12);
+    --royal-gold-border: rgba(129, 199, 132, 0.35);
+
+    --royal-emerald: #2E7D32;
+    --royal-crimson: #D32F2F;
+
+    --font-heading: "Outfit", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--royal-beige-bg);
+    background-image: 
+        linear-gradient(160deg, rgba(235, 229, 217, 0.15) 0%, rgba(226, 220, 206, 0.25) 100%),
+        url('../assets/images/leaf_pattern_bg.jpg');
+    background-repeat: no-repeat, repeat;
+    background-size: auto, 320px 320px;
+    background-attachment: scroll, fixed;
+    color: var(--royal-beige-dark);
+    font-family: var(--font-body);
+}
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.subject-topbar {
+    background: var(--royal-brown-deep);
+    border-bottom: 2px solid var(--royal-gold);
+    color: var(--royal-brown-text);
+    padding: 14px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--royal-brown-card);
+    border: 1px solid var(--royal-gold-border);
+    color: var(--royal-gold-bright);
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.back-btn:hover {
+    background: var(--royal-gold);
+    color: var(--royal-brown-deep);
+}
+
+.brand-mini {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-heading);
+    font-size: 15px;
+    color: var(--royal-brown-text);
+}
+
+.brand-mini img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--royal-gold);
+    object-fit: cover;
+}
+
+.brand-mini b {
+    color: var(--royal-gold-bright);
+}
+
+.user-badge {
+    background: var(--royal-brown-card);
+    border: 1px solid var(--royal-brown-border);
+    padding: 6px 14px;
+    font-size: 13px;
+    font-family: var(--font-mono);
+    color: var(--royal-gold-bright);
+}
+
+/* =========================================================
+   SUBJECT HERO
+   ========================================================= */
+
+.subject-hero {
+    background: var(--royal-brown-deep);
+    border-bottom: 1px solid var(--royal-brown-border);
+    color: var(--royal-brown-text);
+    padding: 45px 40px;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.subject-icon-box {
+    width: 90px;
+    height: 90px;
+    background: var(--royal-brown-card);
+    border: 2px solid var(--royal-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 46px;
+    flex-shrink: 0;
+}
+
+.hero-details {
+    flex: 1;
+}
+
+.royal-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--royal-gold-bright);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+}
+
+.hero-details h1 {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--royal-brown-text);
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+}
+
+.hero-details p {
+    font-size: 14px;
+    color: var(--royal-brown-muted);
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.meta-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.meta-pill {
+    padding: 5px 12px;
+    background: var(--royal-brown-card);
+    border: 1px solid var(--royal-brown-border);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--royal-brown-muted);
+}
+
+.meta-pill.gold {
+    border-color: var(--royal-gold);
+    color: var(--royal-gold-bright);
+}
+
+/* =========================================================
+   CURRICULUM CONTAINER
+   ========================================================= */
+
+.curriculum-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px 60px;
+}
+
+/* =========================================================
+   VISIBLE PROGRESS SUMMARY CARD
+   ========================================================= */
+
+.progress-summary-card {
+    background: linear-gradient(150deg, rgba(238, 246, 235, 0.98) 0%, rgba(228, 240, 225, 0.98) 100%), url('../assets/images/leaf_pattern_bg.jpg') center/260px repeat;
+    border: 1px solid rgba(46, 125, 50, 0.28);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-bottom: 32px;
+    box-shadow: 0 6px 22px rgba(18, 36, 21, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    transition: all 0.2s ease;
+}
+
+.summary-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 16px;
+}
+
+.summary-kicker {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--royal-emerald);
+    margin-bottom: 4px;
+}
+
+.summary-heading {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--royal-brown-deep);
+}
+
+.summary-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background: var(--royal-brown-deep);
+    border: 1px solid var(--royal-gold);
+    border-radius: 8px;
+    padding: 8px 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.summary-badge-pct {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--royal-gold-bright);
+    line-height: 1.1;
+}
+
+.summary-badge-sub {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--royal-brown-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.summary-progress-bar-container {
+    margin-bottom: 20px;
+}
+
+.summary-progress-bar-track {
+    width: 100%;
+    height: 12px;
+    background: rgba(18, 36, 21, 0.09);
+    border: 1px solid rgba(46, 125, 50, 0.22);
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.summary-progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #1B5E20 0%, #2E7D32 50%, #81C784 100%);
+    border-radius: 999px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 8px rgba(46, 125, 50, 0.4);
+}
+
+.summary-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.metric-box {
+    background: #FFFFFF;
+    border: 1px solid var(--royal-beige-border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+    box-shadow: 0 2px 8px rgba(18, 36, 21, 0.03);
+}
+
+.metric-box:hover {
+    transform: translateY(-2px);
+    border-color: rgba(46, 125, 50, 0.4);
+    box-shadow: 0 4px 12px rgba(18, 36, 21, 0.06);
+}
+
+.metric-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--royal-beige-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.metric-value {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--royal-brown-deep);
+}
+
+.metric-value.completed-val {
+    color: #2E7D32;
+}
+
+.metric-value.remaining-val {
+    color: #D97706;
+}
+
+.metric-value.percent-val {
+    color: #15803D;
+}
+
+/* =========================================================
+   CURRICULUM HEADER & LESSON CARDS
+   ========================================================= */
+
+.curriculum-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--royal-beige-border);
+}
+
+.curriculum-header h2 {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    color: var(--royal-brown-deep);
+    margin-bottom: 4px;
+}
+
+.curriculum-header p {
+    font-size: 13px;
+    color: var(--royal-beige-muted);
+}
+
+/* LESSON CARDS (generated by subject.js) */
+.lesson-cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.lesson-card {
+    position: relative;
+    background: linear-gradient(150deg, rgba(238, 246, 235, 0.95) 0%, rgba(228, 240, 225, 0.98) 100%), url('../assets/images/leaf_pattern_bg.jpg') center/260px repeat;
+    border: 1px solid rgba(46, 125, 50, 0.20);
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 16px rgba(18, 36, 21, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    overflow: hidden;
+}
+
+.lesson-card:hover {
+    border-color: rgba(46, 125, 50, 0.38);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(18, 36, 21, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+/* 4 DISTINCT LESSON STATUS STYLES */
+/* 1. COMPLETED */
+.lesson-card.completed {
+    border-color: rgba(46, 125, 50, 0.32);
+    background: linear-gradient(150deg, rgba(235, 247, 235, 0.95) 0%, rgba(224, 242, 224, 0.98) 100%);
+}
+
+.lesson-card.completed .lesson-number {
+    background: rgba(46, 125, 50, 0.15);
+    color: #2E7D32;
+    border: 2px solid #2E7D32;
+    font-weight: 800;
+}
+
+/* 2. IN PROGRESS / NEXT UP */
+.lesson-card.in-progress {
+    border: 2px solid #2E7D32;
+    background: linear-gradient(150deg, rgba(230, 248, 230, 0.98) 0%, rgba(215, 244, 215, 0.99) 100%);
+    box-shadow: 0 6px 24px rgba(46, 125, 50, 0.16), inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.lesson-card.in-progress .lesson-number {
+    background: #2E7D32;
+    color: #FFFFFF;
+    border: 2px solid #1B5E20;
+    font-weight: 800;
+    box-shadow: 0 2px 8px rgba(46, 125, 50, 0.3);
+}
+
+/* 3. NOT STARTED */
+.lesson-card.not-started {
+    border-color: var(--royal-beige-border);
+    background: #FFFFFF;
+}
+
+.lesson-card.not-started .lesson-number {
+    background: var(--royal-beige-bg);
+    color: var(--royal-beige-dark);
+}
+
+/* 4. LOCKED */
+.lesson-card.locked {
+    opacity: 0.65;
+    background: rgba(240, 237, 230, 0.65);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+.lesson-card.locked .lesson-number {
+    color: var(--royal-beige-muted);
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+.lesson-number {
+    width: 44px;
+    height: 44px;
+    background: var(--royal-beige-bg);
+    border: 1px solid var(--royal-beige-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--royal-brown-deep);
+    flex-shrink: 0;
+}
+
+.lesson-info {
+    flex: 1;
+}
+
+.lesson-info h3 {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    color: var(--royal-brown-deep);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.lesson-info p {
+    font-size: 13px;
+    color: var(--royal-beige-muted);
+}
+
+.next-up-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    background: #2E7D32;
+    color: #FFFFFF;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    border-radius: 4px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 6px rgba(46, 125, 50, 0.3);
+}
+
+.lesson-status {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.status-badge-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.status-badge-label.completed {
+    color: #2E7D32;
+}
+
+.status-badge-label.in-progress {
+    color: #1B5E20;
+    font-weight: 800;
+}
+
+.status-badge-label.not-started {
+    color: #4B5563;
+}
+
+.status-badge-label.locked {
+    color: #9CA3AF;
+}
+
+.lesson-btn {
+    padding: 10px 20px;
+    background: var(--royal-brown-deep);
+    border: 1px solid var(--royal-gold);
+    color: var(--royal-gold-bright);
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+    border-radius: 6px;
+}
+
+.lesson-btn:hover:not([disabled]) {
+    background: var(--royal-brown-card);
+    border-color: var(--royal-gold-bright);
+}
+
+.lesson-btn.active.in-progress-btn {
+    background: #2E7D32;
+    color: #FFFFFF;
+    border-color: #1B5E20;
+    box-shadow: 0 2px 10px rgba(46, 125, 50, 0.3);
+}
+
+.lesson-btn.active.in-progress-btn:hover {
+    background: #1B5E20;
+}
+
+.lesson-btn.completed {
+    background: var(--royal-beige-surface);
+    border-color: rgba(46, 125, 50, 0.4);
+    color: var(--royal-emerald);
+}
+
+.lesson-btn.completed:hover {
+    background: #2E7D32;
+    color: #FFFFFF;
+}
+
+.lesson-btn[disabled] {
+    background: var(--royal-beige-bg);
+    border-color: var(--royal-beige-border);
+    color: var(--royal-beige-muted);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+@media (max-width: 680px) {
+    .summary-metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .summary-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .summary-badge {
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .meta-row {
+        justify-content: center;
+    }
+
+    .lesson-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .lesson-status {
+        width: 100%;
+        justify-content: space-between;
+    }
+}

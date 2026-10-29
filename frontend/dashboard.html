@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LingoX | Natural Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/premium.css">
+</head>
+
+<body>
+
+    <div class="dashboard-layout">
+
+        <!-- =================================================
+         SIDEBAR (FOREST GREEN)
+    ================================================== -->
+        <aside class="sidebar" id="sidebar">
+
+            <!-- LOGO -->
+            <div class="sidebar-logo">
+                <img src="assets/logo/bhasha-logo.jpeg" alt="LingoX Logo">
+                <div class="sidebar-brand">
+                    <h2>Lingo<span>X</span></h2>
+                    <p>Academy of Code</p>
+                </div>
+            </div>
+
+            <!-- NAVIGATION -->
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item active">
+                    <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                            <polyline points="9 22 9 12 15 12 15 22" />
+                        </svg></span>
+                    <span>Home</span>
+                </a>
+
+                <a href="roadmap.html" class="nav-item">
+                    <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                            <polyline points="2 17 12 22 22 17" />
+                            <polyline points="2 12 12 17 22 12" />
+                        </svg></span>
+                    <span>Roadmaps</span>
+                </a>
+
+                <a href="lesson.html" class="nav-item">
+                    <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                        </svg></span>
+                    <span>Learn</span>
+                </a>
+
+                <a href="projects.html" class="nav-item">
+                    <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <rect width="7" height="7" x="3" y="3" rx="1" />
+                            <rect width="7" height="7" x="14" y="3" rx="1" />
+                            <rect width="7" height="7" x="14" y="14" rx="1" />
+                            <rect width="7" height="7" x="3" y="14" rx="1" />
+                        </svg></span>
+                    <span>Projects</span>
+                </a>
+
+                <a href="achievements.html" class="nav-item">
+                    <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        </svg></span>
+                    <span>Achievements</span>
+                </a>
+
+                <a href="leaderboard.html" class="nav-item">
+                    <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                            <path d="M4 22h16" />
+                            <path d="M10 14.66V17c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-2.34" />
+                            <path d="M18 14.66V17c0 .55-.45 1-1 1h-2c-.55 0-1-.45-1-1v-2.34" />
+                            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+                        </svg></span>
+                    <span>Leaderboard</span>
+                </a>
+
+                <a href="AiMentor.html" class="nav-item">
+                    <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path
+                                d="M12 2a8 8 0 0 0-8 8c0 3.4 2.1 6.3 5.1 7.4L9 21l3.5-1.5L16 21l-.1-3.6C18.9 16.3 21 13.4 21 10a8 8 0 0 0-8-8z" />
+                            <circle cx="9" cy="10" r="1" />
+                            <circle cx="15" cy="10" r="1" />
+                            <path d="M9.5 14c.8.6 1.6.8 2.5.8s1.7-.2 2.5-.8" />
+                        </svg></span>
+                    <span>AI Mentor</span>
+                </a>
+
+                <a href="settings.html" class="nav-item">
+                    <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path
+                                d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg></span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <!-- SIDEBAR CARD -->
+            <div class="sidebar-learning-card">
+                <div class="tree-badge">🌲</div>
+                <h3>Learning Journey</h3>
+                <p>Complete 1 more module today to nurture your 7-day streak.</p>
+                <button id="sidebarContinue">Continue Track →</button>
+            </div>
+
+            <!-- BOTTOM LOGOUT -->
+            <div class="sidebar-bottom">
+                <button class="logout-button" id="logoutButton">
+                    <span class="nav-icon">↪</span>
+                    <span>Sign Out</span>
+                </button>
+            </div>
+
+        </aside>
+
+        <!-- =================================================
+         MAIN CONTENT (IVORY & FOREST ATMOSPHERE)
+    ================================================== -->
+        <main class="main-content">
+
+            <!-- TOP BAR -->
+            <header class="topbar">
+                <button class="menu-button" id="menuButton" aria-label="Toggle Menu">
+                    ☰
+                </button>
+
+                <div class="search-box">
+                    <span>⌕</span>
+                    <input type="text" id="searchInput" placeholder="Search coding lessons, topics, algorithms...">
+                </div>
+
+                <div class="topbar-right">
+                    <!-- STREAK -->
+                    <div class="top-stat">
+                        <span class="stat-icon">🔥</span>
+                        <div>
+                            <strong id="topStreakDisplay">0</strong>
+                            <small>Day Streak</small>
+                        </div>
+                    </div>
+
+                    <!-- XP -->
+                    <div class="top-stat">
+                        <span class="stat-icon">🌱</span>
+                        <div>
+                            <strong id="topXpDisplay">0</strong>
+                            <small>Leaf XP</small>
+                        </div>
+                    </div>
+
+                    <!-- LEADERBOARD RANK -->
+                    <a href="leaderboard.html" class="top-stat clickable" title="View Student Leaderboard">
+                        <span class="stat-icon">🏆</span>
+                        <div>
+                            <strong id="topRankDisplay">#--</strong>
+                            <small>Rank</small>
+                        </div>
+                    </a>
+
+                    <!-- EARNABLE PREMIUM CROWN BADGE -->
+                    <a href="#premiumCard" class="nav-premium-crown" id="navPremiumBadge" title="Earnable Premium Membership">
+                        <span>👑</span>
+                        <strong id="navPremiumStatus">Free Learner</strong>
+                    </a>
+
+                    <!-- NOTIFICATION -->
+                    <button class="notification-button" id="notificationButton" aria-label="Notifications">
+                        🔔
+                        <span class="notification-dot"></span>
+                    </button>
+
+                    <!-- PROFILE -->
+                    <a href="settings.html" class="profile" id="profileMenu" title="Manage Settings">
+                        <div class="profile-avatar" id="topAvatarDisplay">?</div>
+                        <div class="profile-info">
+                            <strong id="topLearnerName">Scholar</strong>
+                            <span id="topTierDisplay">Fundamentals</span>
+                        </div>
+                    </a>
+                </div>
+            </header>
+
+            <!-- DASHBOARD BODY WITH FOREST BACKDROP -->
+            <div class="dashboard-content">
+
+                <!-- WELCOME WITH FOREST BACKGROUND -->
+                <section class="welcome-forest-section">
+                    <!-- Forest SVG Silhouette Backdrop -->
+                    <div class="forest-silhouette-bg">
+                        <svg viewBox="0 0 1200 240" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0,240 L0,170 L30,130 L60,170 L90,110 L120,170 L160,90 L200,170 L230,120 L260,170 L300,100 L340,170 L380,80 L420,170 L460,110 L500,170 L540,90 L580,170 L620,100 L660,170 L700,70 L740,170 L780,120 L820,170 L860,85 L900,170 L940,110 L980,170 L1020,95 L1060,170 L1100,75 L1140,170 L1180,120 L1200,170 L1200,240 Z"
+                                fill="#1B3B20" opacity="0.35" />
+                            <path
+                                d="M0,240 L0,190 L40,150 L80,190 L130,130 L180,190 L220,140 L270,190 L320,120 L370,190 L430,135 L490,190 L550,110 L610,190 L670,140 L730,190 L790,115 L850,190 L910,140 L970,190 L1030,125 L1090,190 L1150,145 L1200,190 L1200,240 Z"
+                                fill="#122415" opacity="0.6" />
+                        </svg>
+                    </div>
+
+                    <div class="welcome-content">
+                        <div class="welcome-text">
+                            <span class="welcome-pill">SANCTUARY OF CODE</span>
+                            <h1>Welcome back, <span id="learnerName">Harshit</span>!</h1>
+                            <p class="welcome-description">
+                                Your coding skills are taking root. Continue your interactive modules to upgrade your
+                                journey.
+                            </p>
+                        </div>
+
+                        <!-- CURRENT LANGUAGE TRACK -->
+                        <div class="current-language-box">
+                            <div class="language-flag" id="currentTrackIcon">🐍</div>
+                            <div>
+                                <span>Current Track</span>
+                                <strong id="currentTrackName">Python Masterclass</strong>
+                            </div>
+                            <div class="track-actions-group">
+                                <a href="roadmap.html" class="track-roadmap-btn" id="trackRoadmapBtn" title="View Subject Curriculum Roadmap">Roadmap →</a>
+                                <button type="button" class="switch-track-btn" id="switchTrackBtn">Switch Track</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- =================================================
+                 EARNABLE PREMIUM MEMBERSHIP CARD
+                 Rule: Every 200 minutes active learning = 1 day Premium
+            ================================================== -->
+                <section class="premium-membership-card" id="premiumCard">
+                    <div class="premium-card-header">
+                        <div class="premium-title-group">
+                            <div class="premium-crown-icon">👑</div>
+                            <div class="premium-title-text">
+                                <h3>Earnable Premium Membership</h3>
+                                <p>Learn actively to unlock verified full-access Premium privileges automatically.</p>
+                            </div>
+                        </div>
+
+                        <div class="premium-status-badge free" id="premiumStatusBadge">
+                            <span>⭐</span>
+                            <span id="premiumStatusText">Free Learner</span>
+                        </div>
+                    </div>
+
+                    <div class="premium-card-body">
+                        <!-- Circular Progress Ring (e.g. 132 / 200 Minutes) -->
+                        <div class="progress-ring-wrapper">
+                            <svg class="progress-ring-svg" viewBox="0 0 140 140">
+                                <defs>
+                                    <linearGradient id="goldRingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#fbbf24" />
+                                        <stop offset="50%" stop-color="#f59e0b" />
+                                        <stop offset="100%" stop-color="#d97706" />
+                                    </linearGradient>
+                                </defs>
+                                <circle class="progress-ring-track" cx="70" cy="70" r="60" />
+                                <circle class="progress-ring-fill" id="premiumProgressRing" cx="70" cy="70" r="60" />
+                            </svg>
+                            <div class="progress-ring-center">
+                                <span class="progress-ring-mins" id="ringMinutesDisplay">0 / 200</span>
+                                <span class="progress-ring-sub">Minutes</span>
+                            </div>
+                        </div>
+
+                        <!-- Premium Stats Grid -->
+                        <div class="premium-stats-grid">
+                            <div class="premium-stat-box">
+                                <span class="stat-box-label">Reward Progress</span>
+                                <strong class="stat-box-value highlight" id="rewardProgressPercent">0%</strong>
+                                <small style="color: #94a3b8; font-size: 0.72rem;"><span id="statMinsRemaining">200</span>m to next reward</small>
+                            </div>
+
+                            <div class="premium-stat-box">
+                                <span class="stat-box-label">Active Days Left</span>
+                                <strong class="stat-box-value" id="statDaysLeft">0 Days</strong>
+                                <small style="color: #94a3b8; font-size: 0.72rem;" id="statHoursLeft">0 hours remaining</small>
+                            </div>
+
+                            <div class="premium-stat-box">
+                                <span class="stat-box-label">Total Screen Time</span>
+                                <strong class="stat-box-value" id="statTotalScreenTime">0 Mins</strong>
+                                <small style="color: #94a3b8; font-size: 0.72rem;">Verified active learning</small>
+                            </div>
+
+                            <div class="premium-stat-box">
+                                <span class="stat-box-label">Membership Expiry</span>
+                                <strong class="stat-box-value" id="statExpiryDate" style="font-size: 0.85rem; font-family: Outfit, sans-serif;">Inactive</strong>
+                                <small style="color: #94a3b8; font-size: 0.72rem;" id="statAutoRenewNote">+1 Day per 200 mins</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-rule-banner">
+                        <span>⚡ <strong>Rule:</strong> Every 200 minutes of active learning = <strong>1 day (24 hours)</strong> of Premium Membership. Automatically repeats forever.</span>
+                        <button type="button" class="btn-celebration-close" id="btnViewPremiumFeatures" style="width: auto; padding: 6px 14px; font-size: 0.75rem;">
+                            View Locked Privileges 🔒
+                        </button>
+                    </div>
+                </section>
+
+                <!-- =================================================
+                 PROGRESS TILL NOW ROAD PROGRESS BAR SECTION
+            ================================================== -->
+                <section class="journey-card">
+                    <div class="journey-header">
+                        <div>
+                            <span class="card-label">MILESTONE TRACKER</span>
+                            <h2>Progress Till Now</h2>
+                            <p>Track your interactive learning milestones, completed modules, and curriculum advancement
+                                in real time.</p>
+                        </div>
+
+                        <!-- Progress Status Badge -->
+                        <div class="vehicle-tier-badge" id="vehicleTierBadge">
+                            <span id="tierCategory">STAGE 1 • FUNDAMENTALS</span>
+                            <strong id="tierTitle">Overall Progress: 0%</strong>
+                        </div>
+                    </div>
+
+                    <!-- ROAD ARENA (WAVY FOREST HIGHWAY) -->
+                    <div class="road-arena" id="roadArena">
+                        <div class="wavy-road-box" id="wavyRoadBox">
+                            <svg class="wavy-road-svg" id="wavyRoadSvg" viewBox="0 0 1000 160"
+                                preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="roadAsphaltGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#1E3321" />
+                                        <stop offset="50%" stop-color="#28422C" />
+                                        <stop offset="100%" stop-color="#1B301E" />
+                                    </linearGradient>
+                                    <linearGradient id="roadFillGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#2E7D32" />
+                                        <stop offset="60%" stop-color="#43A047" />
+                                        <stop offset="100%" stop-color="#81C784" />
+                                    </linearGradient>
+                                </defs>
+
+                                <!-- Road Embankment / Border -->
+                                <path class="wavy-road-embankment"
+                                    d="M 35,115 C 220,25 380,155 580,80 C 740,15 860,140 965,65" fill="none"
+                                    stroke="#D7E5D9" stroke-width="52" stroke-linecap="round" />
+
+                                <!-- Asphalt Road Layer -->
+                                <path id="wavyRoadPath" class="wavy-road-asphalt"
+                                    d="M 35,115 C 220,25 380,155 580,80 C 740,15 860,140 965,65" fill="none"
+                                    stroke="url(#roadAsphaltGrad)" stroke-width="42" stroke-linecap="round" />
+
+                                <!-- Glowing Emerald Progress Fill -->
+                                <path id="wavyRoadProgressFill" class="wavy-road-progress"
+                                    d="M 35,115 C 220,25 380,155 580,80 C 740,15 860,140 965,65" fill="none"
+                                    stroke="url(#roadFillGrad)" stroke-width="42" stroke-linecap="round"
+                                    stroke-dasharray="1050" stroke-dashoffset="550" />
+
+                                <!-- White Dashed Centerline -->
+                                <path class="wavy-road-centerline"
+                                    d="M 35,115 C 220,25 380,155 580,80 C 740,15 860,140 965,65" fill="none"
+                                    stroke="#FFFFFF" stroke-width="2.5" stroke-dasharray="14 12" opacity="0.85" />
+                            </svg>
+
+                            <!-- Milestone Pin Markers on the Curve -->
+                            <div class="wavy-milestone-marker" id="pin0"><span>0%</span><small>Start</small></div>
+                            <div class="wavy-milestone-marker" id="pin25"><span>25%</span><small>Basics</small></div>
+                            <div class="wavy-milestone-marker" id="pin50"><span>50%</span><small>Core</small></div>
+                            <div class="wavy-milestone-marker" id="pin75"><span>75%</span><small>Advanced</small></div>
+                            <div class="wavy-milestone-marker" id="pin100"><span>100%</span><small>Mastery 🏆</small>
+                            </div>
+
+                            <!-- UNBOXED DIRECT CAR PHOTO -->
+                            <div class="wavy-car-anchor" id="wavyCarAnchor">
+                                <div class="wavy-car-rotator" id="wavyCarRotator">
+                                    <img src="assets/cars/car_stage2.png" alt="Progress Vehicle" id="carPhotoImg"
+                                        class="wavy-car-img">
+                                    <div class="wavy-car-tag" id="carProgressTag">Progress: 47%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROGRESS LEVEL PREVIEW CONTROLS -->
+                    <div class="evolution-controller">
+                        <span class="ctrl-label">PREVIEW PROGRESS MILESTONES:</span>
+                        <div class="tier-buttons">
+                            <button class="tier-btn" data-progress="15">
+                                🌱 Stage 1: Basics (15%)
+                            </button>
+                            <button class="tier-btn active" data-progress="47">
+                                🌿 Stage 2: Core (47%)
+                            </button>
+                            <button class="tier-btn" data-progress="68">
+                                ⭐ Stage 3: Advanced (68%)
+                            </button>
+                            <button class="tier-btn" data-progress="95">
+                                🏆 Stage 4: Mastery (95%)
+                            </button>
+                        </div>
+
+                        <button class="primary-leaf-button" id="continueLearning">
+                            Continue Next Module →
+                        </button>
+                    </div>
+                </section>
+
+                <!-- =================================================
+                     AI MENTOR ASSESSMENT & GUIDANCE SECTION
+                ================================================== -->
+                <section class="ai-mentor-assessment-card" id="aiMentorSection">
+                    <div class="mentor-card-header">
+                        <div class="mentor-header-info">
+                            <div class="mentor-badge-row">
+                                <span class="mentor-chip">✨ AI MENTOR EVALUATION</span>
+                                <span class="mentor-status-tag" id="mentorStatusTag">
+                                    <span class="status-pulse-dot"></span> Powered by Google Gemini
+                                </span>
+                            </div>
+                            <h2>Personalized AI Assessment & Mentorship</h2>
+                            <p>Adaptive feedback, diagnostic strength analysis, and customized study roadmaps generated directly from your assessment results.</p>
+                        </div>
+
+                        <div class="mentor-header-actions">
+                            <button class="mentor-generate-btn" id="generateAIFeedbackBtn">
+                                <span class="btn-icon">⚡</span>
+                                <span id="generateBtnText">Get Personalized AI Feedback</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ASSESSMENT SNAPSHOT STRIP -->
+                    <div class="assessment-snapshot-strip" id="assessmentSnapshotStrip">
+                        <div class="snapshot-col overall-box">
+                            <span class="snap-label">OVERALL PROFICIENCY</span>
+                            <div class="snap-score-row">
+                                <span class="snap-score-num" id="snapOverallScore">—</span>
+                                <span class="snap-level-badge" id="snapProficiencyLevel">Not Assessed</span>
+                            </div>
+                            <small class="snap-subtext" id="snapTrackLabel">Track: Learning Journey</small>
+                        </div>
+
+                        <div class="snapshot-skills-grid">
+                            <div class="skill-meter-item">
+                                <div class="skill-meter-top">
+                                    <span id="skillMeterLabel1">Programming Syntax</span>
+                                    <strong id="snapGrammarScore">0%</strong>
+                                </div>
+                                <div class="skill-bar"><div id="snapGrammarBar" style="width: 0%; background: #EF5350;"></div></div>
+                            </div>
+
+                            <div class="skill-meter-item">
+                                <div class="skill-meter-top">
+                                    <span id="skillMeterLabel2">Programming Concepts</span>
+                                    <strong id="snapVocabScore">0%</strong>
+                                </div>
+                                <div class="skill-bar"><div id="snapVocabBar" style="width: 0%; background: #43A047;"></div></div>
+                            </div>
+
+                            <div class="skill-meter-item">
+                                <div class="skill-meter-top">
+                                    <span id="skillMeterLabel3">Programming Logic</span>
+                                    <strong id="snapWritingScore">0%</strong>
+                                </div>
+                                <div class="skill-bar"><div id="snapWritingBar" style="width: 0%; background: #FFA726;"></div></div>
+                            </div>
+
+                            <div class="skill-meter-item">
+                                <div class="skill-meter-top">
+                                    <span id="skillMeterLabel4">Code Tracing & Output</span>
+                                    <strong id="snapReadingScore">0%</strong>
+                                </div>
+                                <div class="skill-bar"><div id="snapReadingBar" style="width: 0%; background: #2E7D32;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ASSESSMENT EMPTY STATE -->
+                    <div class="assessment-empty-state" id="assessmentEmptyState" style="display: none; padding: 24px; text-align: center; background: rgba(27, 59, 32, 0.4); border-radius: 14px; border: 1px dashed rgba(67, 160, 71, 0.4); margin-top: 16px;">
+                        <span style="font-size: 2.2rem; display: block; margin-bottom: 8px;">📊</span>
+                        <h4 style="color: #f1f5f9; font-size: 1.05rem; margin-bottom: 6px;">No Assessment Data Available Yet</h4>
+                        <p style="color: #94a3b8; font-size: 0.88rem; max-width: 520px; margin: 0 auto;">Complete your first curriculum quiz or coding lesson to generate your personalized skill diagnostics and unlock AI mentor advice.</p>
+                    </div>
+
+                    <!-- LOADING STATE -->
+                    <div class="mentor-loading-state" id="mentorLoadingState" style="display: none;">
+                        <div class="mentor-spinner"></div>
+                        <div class="loading-text-group">
+                            <h4>Consulting Academic AI Mentor...</h4>
+                            <p>Analyzing your proficiency metrics, diagnosing weak areas, and generating an adaptive action plan.</p>
+                        </div>
+                    </div>
+
+                    <!-- RESULTS DISPLAY -->
+                    <div class="mentor-results-wrapper" id="mentorResultsWrapper" style="display: none;">
+                        <!-- OVERALL NARRATIVE -->
+                        <div class="mentor-narrative-box">
+                            <div class="narrative-icon">🌿</div>
+                            <div class="narrative-body">
+                                <h4>Academic Mentor Diagnostic</h4>
+                                <p id="mentorOverallFeedback"></p>
+                            </div>
+                        </div>
+
+                        <!-- STRENGTHS & WEAK AREAS DUAL COLUMN -->
+                        <div class="mentor-attributes-grid">
+                            <div class="attribute-column strengths-card">
+                                <div class="attr-header">
+                                    <span class="attr-icon">🌟</span>
+                                    <h5>Demonstrated Strengths</h5>
+                                </div>
+                                <div class="pill-tags-container" id="mentorStrengthsList"></div>
+                            </div>
+
+                            <div class="attribute-column weaknesses-card">
+                                <div class="attr-header">
+                                    <span class="attr-icon">🎯</span>
+                                    <h5>Priority Improvement Areas</h5>
+                                </div>
+                                <div class="pill-tags-container" id="mentorWeakAreasList"></div>
+                            </div>
+                        </div>
+
+                        <!-- PERSONALIZED LEARNING PLAN -->
+                        <div class="learning-plan-section">
+                            <div class="plan-header">
+                                <div>
+                                    <span class="card-label">STEP-BY-STEP REMEDIATION</span>
+                                    <h3>Adaptive Learning & Action Plan</h3>
+                                </div>
+                            </div>
+                            <div class="plan-cards-container" id="mentorLearningPlanList"></div>
+                        </div>
+
+                        <!-- RECOMMENDATIONS & MOTIVATION ROW -->
+                        <div class="mentor-bottom-row">
+                            <div class="recommendations-box">
+                                <h5>📚 Targeted Practice Recommendations</h5>
+                                <ul class="mentor-recs-list" id="mentorRecommendationsList"></ul>
+                            </div>
+
+                            <div class="motivational-quote-box">
+                                <div class="quote-symbol">❝</div>
+                                <p class="quote-text" id="mentorMotivationalMessage"></p>
+                                <small class="quote-author">— LingoX Academic Pair Mentor</small>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- =================================================
+                     SPOKEN ENGLISH & SPEECH RECOGNITION ASSESSMENT SECTION
+                     (Priority 1: Live STT, Word Error Rate, Speaking Rate, Genuine Status)
+                ================================================== -->
+                <section class="speaking-assessment-card" id="speakingSection">
+                    <div class="speaking-card-header">
+                        <div class="speaking-header-info">
+                            <div class="speaking-badge-row">
+                                <span class="speaking-chip">🎙️ LIVE SPEECH ASSESSMENT</span>
+                                <span class="speaking-status-tag" id="speechSupportTag">
+                                    <span class="status-pulse-dot speech-dot"></span> Web Speech Recognition
+                                </span>
+                                <span class="pronunciation-disclaimer-pill" title="Acoustic phoneme assessment requires specialized server-side phonetic models">Acoustic Phoneme Engine: Unavailable</span>
+                            </div>
+                            <h2>Spoken English Practice &amp; Speech-to-Text Evaluation</h2>
+                            <p>Read the prompt aloud into your microphone to evaluate transcription accuracy and speaking pace. Real-time Word Error Rate (WER) and Words Per Minute (WPM) analysis.</p>
+                        </div>
+
+                        <div class="speaking-header-actions">
+                            <button type="button" class="view-history-btn" id="btnToggleSpeakingHistory" title="View Assessment History">
+                                <span>📜</span>
+                                <span>Past Attempts (<span id="speakingAttemptsCount">0</span>)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- MAIN INTERACTIVE ASSESSMENT CONTAINER -->
+                    <div class="speaking-card-body">
+                        <!-- PROMPT SELECTION & TARGET SENTENCE -->
+                        <div class="speaking-prompt-container">
+                            <!-- Difficulty & Task Type Filters -->
+                            <div class="speaking-filters-row">
+                                <div class="filter-group">
+                                    <span class="filter-label">Level:</span>
+                                    <div class="filter-pills" id="speakingDifficultyPills">
+                                        <button type="button" class="speaking-filter-pill active" data-difficulty="all">All Levels</button>
+                                        <button type="button" class="speaking-filter-pill" data-difficulty="beginner">Beginner</button>
+                                        <button type="button" class="speaking-filter-pill" data-difficulty="intermediate">Intermediate</button>
+                                        <button type="button" class="speaking-filter-pill" data-difficulty="advanced">Advanced</button>
+                                    </div>
+                                </div>
+                                <div class="filter-group">
+                                    <span class="filter-label">Task Type:</span>
+                                    <div class="filter-pills" id="speakingTaskPills">
+                                        <button type="button" class="speaking-filter-pill active" data-task="all">All Types</button>
+                                        <button type="button" class="speaking-filter-pill" data-task="sentence_reading">Sentence Reading</button>
+                                        <button type="button" class="speaking-filter-pill" data-task="conversation">Conversation</button>
+                                        <button type="button" class="speaking-filter-pill" data-task="topic_description">Topic Description</button>
+                                        <button type="button" class="speaking-filter-pill" data-task="short_response">Short Response</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="prompt-selector-row">
+                                <label for="speakingPromptSelect" class="speaking-label">Select Target Sentence:</label>
+                                <div class="prompt-select-actions">
+                                    <div class="prompt-select-wrapper" style="flex: 1;">
+                                        <select id="speakingPromptSelect" class="speaking-select">
+                                            <option value="">Loading prompt library...</option>
+                                        </select>
+                                    </div>
+                                    <button type="button" class="btn-shuffle-prompt" id="btnShufflePrompt" title="Get a fresh unpracticed prompt">
+                                        <span>🎲 Shuffle Prompt</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Prompt Metadata Badges & Guidance -->
+                            <div class="prompt-meta-row" id="promptMetaRow">
+                                <span class="prompt-meta-badge badge-diff-intermediate" id="promptDifficultyBadge">Intermediate</span>
+                                <span class="prompt-meta-badge" id="promptTaskTypeBadge">Sentence Reading</span>
+                                <span class="prompt-meta-badge badge-pace" id="promptPaceBadge">Target: 110-150 WPM</span>
+                            </div>
+                            <p class="prompt-guidance-text" id="promptGuidanceText">Read clearly into your microphone at a steady, fluent pace.</p>
+
+                            <!-- Custom Sentence Input (hidden unless selected) -->
+                            <div class="custom-prompt-row" id="customPromptRow" style="display: none;">
+                                <input type="text" id="customPromptInput" class="custom-prompt-input" placeholder="Type your own English sentence here (min 3 words)..." maxlength="300">
+                            </div>
+
+                            <!-- Displayed Target Sentence Box -->
+                            <div class="target-sentence-box">
+                                <div class="target-box-header">
+                                    <span class="target-label">Target Prompt:</span>
+                                    <button type="button" class="btn-tts-listen" id="btnListenTarget" title="Listen to pronunciation via SpeechSynthesis">
+                                        <span>🔊</span> Listen
+                                    </button>
+                                </div>
+                                <div class="target-sentence-text" id="targetSentenceDisplay">
+                                    The quick brown fox jumps over the lazy dog.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RECORDING CONTROLS & LIVE STATUS -->
+                        <div class="recording-controls-area">
+                            <!-- Initial State Button -->
+                            <div class="mic-trigger-wrap" id="micIdleState">
+                                <button type="button" class="btn-start-record" id="btnStartRecording">
+                                    <span class="mic-icon-circle">🎙️</span>
+                                    <span class="record-btn-text">
+                                        <strong>Click to Record Microphone</strong>
+                                        <small>Microphone will only activate upon clicking</small>
+                                    </span>
+                                </button>
+                            </div>
+
+                            <!-- Active Recording State -->
+                            <div class="mic-active-state" id="micActiveState" style="display: none;">
+                                <div class="recording-indicator-bar">
+                                    <span class="pulse-recording-dot"></span>
+                                    <span class="recording-label">LISTENING... SPEAK CLEARLY</span>
+                                    <span class="recording-timer" id="recordingTimer">00:00.0</span>
+                                </div>
+                                <div class="live-transcript-box" id="liveTranscriptBox">
+                                    <span class="live-label">Live Spoken Transcript:</span>
+                                    <p id="liveTranscriptText" class="live-transcript-text">Listening for speech...</p>
+                                </div>
+                                <div class="active-record-actions">
+                                    <button type="button" class="btn-stop-record" id="btnStopRecording">
+                                        <span>⏹️</span> Stop &amp; Evaluate
+                                    </button>
+                                    <button type="button" class="btn-cancel-record" id="btnCancelRecording">
+                                        <span>✖</span> Cancel
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Browser & Mic Alert Box -->
+                            <div class="speaking-alert-box" id="speakingAlertBox" style="display: none;">
+                                <span class="alert-icon" id="speakingAlertIcon">⚠️</span>
+                                <div class="alert-text">
+                                    <strong id="speakingAlertTitle">Notice</strong>
+                                    <p id="speakingAlertMessage"></p>
+                                </div>
+                                <button type="button" class="btn-dismiss-alert" id="btnDismissSpeakingAlert" aria-label="Dismiss Alert">×</button>
+                            </div>
+                        </div>
+
+                        <!-- EVALUATION RESULTS DISPLAY -->
+                        <div class="speaking-results-panel" id="speakingResultsPanel" style="display: none;">
+                            <div class="results-header-row">
+                                <div class="res-title-group">
+                                    <span class="res-pill">EVALUATION REPORT</span>
+                                    <h3 id="resFeedbackHeader">Speech Assessment Breakdown</h3>
+                                </div>
+                                <div class="res-badge-wrap">
+                                    <span class="xp-badge" id="resXpBadge">+15 Speaking XP</span>
+                                </div>
+                            </div>
+
+                            <!-- METRIC CARDS GRID -->
+                            <div class="metrics-summary-grid">
+                                <!-- Accuracy -->
+                                <div class="metric-card acc-card">
+                                    <span class="metric-label">Transcription Accuracy</span>
+                                    <div class="metric-value-row">
+                                        <strong class="metric-num" id="resAccuracyNum">0%</strong>
+                                        <span class="metric-grade" id="resAccuracyGrade">Good</span>
+                                    </div>
+                                    <div class="metric-bar-bg"><div class="metric-bar-fill" id="resAccuracyBar" style="width: 0%;"></div></div>
+                                    <small class="metric-caption">Word Error Rate (WER) match against target</small>
+                                </div>
+
+                                <!-- Speaking Rate -->
+                                <div class="metric-card wpm-card">
+                                    <span class="metric-label">Speaking Pace</span>
+                                    <div class="metric-value-row">
+                                        <strong class="metric-num" id="resWpmNum">— WPM</strong>
+                                        <span class="metric-grade" id="resWpmGrade">Pace</span>
+                                    </div>
+                                    <div class="metric-detail" id="resDurationDetail">Duration: 0.0s</div>
+                                    <small class="metric-caption">Measured reliably when duration &ge; 1.0s</small>
+                                </div>
+
+                                <!-- Acoustic Pronunciation Status Notice -->
+                                <div class="metric-card pron-card">
+                                    <span class="metric-label">Acoustic Pronunciation</span>
+                                    <div class="metric-value-row">
+                                        <strong class="metric-num-unavailable" id="resPronStatus">Unavailable</strong>
+                                    </div>
+                                    <div class="acoustic-warning-box">
+                                        <span class="acoustic-info-icon">ℹ️</span>
+                                        <span>Acoustic phoneme assessment engine is unavailable. Transcription similarity reflects speech-to-text recognition accuracy only.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- WORD-LEVEL VISUAL DIFF COMPARISON -->
+                            <div class="word-diff-section">
+                                <h4>Word-by-Word Alignment</h4>
+                                <p class="diff-help">Green indicates accurately recognized words; red indicates omitted, substituted, or unaligned words.</p>
+                                <div class="diff-chips-container" id="resWordDiffChips">
+                                    <!-- Populated dynamically with green/red word spans -->
+                                </div>
+                            </div>
+
+                            <!-- TRANSCRIPT VERBATIM -->
+                            <div class="spoken-verbatim-box">
+                                <span class="verbatim-label">Transcribed Speech:</span>
+                                <blockquote id="resSpokenVerbatim" class="spoken-quote">“...”</blockquote>
+                            </div>
+
+                            <!-- ACTIONS -->
+                            <div class="results-actions-row">
+                                <button type="button" class="btn-try-again" id="btnTryAgain">
+                                    <span>🔄</span> Practice Another Sentence
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- HISTORICAL ATTEMPTS DRAWER -->
+                        <div class="speaking-history-drawer" id="speakingHistoryDrawer" style="display: none;">
+                            <div class="history-drawer-header">
+                                <div>
+                                    <h4 style="margin: 0 0 2px 0;">Your Speaking Assessment History</h4>
+                                    <small style="color: var(--c-text-muted);">Real past recordings, transcripts, accuracy, and pace</small>
+                                </div>
+                                <button type="button" class="btn-close-drawer" id="btnCloseHistoryDrawer" aria-label="Close history drawer">×</button>
+                            </div>
+
+                            <!-- Aggregate Summary Strip -->
+                            <div class="speaking-history-stats" id="speakingHistoryStats">
+                                <div class="history-stat-box">
+                                    <span class="history-stat-label">Total Attempts</span>
+                                    <span class="history-stat-val" id="histStatAttempts">0</span>
+                                </div>
+                                <div class="history-stat-box">
+                                    <span class="history-stat-label">Average Accuracy</span>
+                                    <span class="history-stat-val" id="histStatAccuracy">—%</span>
+                                </div>
+                                <div class="history-stat-box">
+                                    <span class="history-stat-label">Average Pace</span>
+                                    <span class="history-stat-val" id="histStatPace">— WPM</span>
+                                </div>
+                                <div class="history-stat-box">
+                                    <span class="history-stat-label">Recent Trend</span>
+                                    <span class="history-stat-val" id="histStatTrend"><span class="history-trend-pill history-trend-stable">Steady</span></span>
+                                </div>
+                            </div>
+
+                            <div class="history-list" id="speakingHistoryList">
+                                <p class="history-empty">No previous speaking sessions recorded yet.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- =================================================
+                 SECOND ROW (CARDS)
+            ================================================== -->
+                <section class="dashboard-grid">
+
+                    <!-- DAILY DISCIPLINE -->
+                    <div class="daily-goal-card">
+                        <div class="card-title-row">
+                            <div>
+                                <span class="card-label">DAILY ROOTING</span>
+                                <h3>Sprout Streak 🔥</h3>
+                            </div>
+                            <strong class="goal-number" id="sproutStreakDays">0/7 Days</strong>
+                        </div>
+
+                        <div class="week-days" id="sproutWeekDays">
+                            <div class="day"><span>M</span><b>•</b></div>
+                            <div class="day"><span>T</span><b>•</b></div>
+                            <div class="day"><span>W</span><b>•</b></div>
+                            <div class="day"><span>T</span><b>•</b></div>
+                            <div class="day"><span>F</span><b>•</b></div>
+                            <div class="day"><span>S</span><b>•</b></div>
+                            <div class="day"><span>S</span><b>•</b></div>
+                        </div>
+
+                        <div class="goal-progress">
+                            <div id="sproutStreakProgress" style="width: 0%;"></div>
+                        </div>
+
+                        <p id="sproutStreakText">Practice today to nurture your streak and advance to the next milestone!</p>
+                    </div>
+
+                    <!-- UP NEXT LESSON -->
+                    <div class="continue-card">
+                        <div class="continue-top">
+                            <div>
+                                <span class="card-label" id="upNextTrackLabel">UP NEXT IN CURRICULUM</span>
+                                <h2 id="upNextTitle">Loading Next Module...</h2>
+                                <p id="upNextSubtitle">Continue your curriculum journey.</p>
+                            </div>
+                            <div class="lesson-icon" id="upNextIcon">⚡</div>
+                        </div>
+
+                        <div class="lesson-details" id="upNextDetails">
+                            <span>Module 1</span>
+                            <span>•</span>
+                            <span>5 min</span>
+                            <span>•</span>
+                            <span>+50 XP</span>
+                        </div>
+
+                        <div class="card-action-row" style="display: flex; gap: 8px; margin-top: 14px;">
+                            <button class="primary-leaf-button" id="startLesson" style="flex: 1;">
+                                Commence Lesson →
+                            </button>
+                            <a href="roadmap.html" class="card-roadmap-btn" id="cardRoadmapBtn" title="View Full Subject Roadmap">
+                                Roadmap 🗺️
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- LEADERBOARD PREVIEW WIDGET -->
+                    <div class="stats-card">
+                        <div class="card-title-row">
+                            <div>
+                                <span class="card-label">STUDENT COMPETITION</span>
+                                <h3>Emerald League</h3>
+                            </div>
+                            <a href="leaderboard.html" class="view-all">View All →</a>
+                        </div>
+
+                        <div class="mini-leaderboard" id="miniLeaderboardContainer">
+                            <!-- Populated dynamically from real leaderboard API -->
+                        </div>
+                    </div>
+
+                    <!-- ACHIEVEMENTS PREVIEW -->
+                    <div class="achievements-card">
+                        <div class="card-title-row">
+                            <div>
+                                <span class="card-label">HONORS & CRESTS</span>
+                                <h3>Milestone Badges</h3>
+                            </div>
+                            <a href="achievements.html" class="view-all">All Badges →</a>
+                        </div>
+
+                        <div class="badges" id="dashboardBadgesContainer">
+                            <!-- Populated dynamically from real badges API -->
+                        </div>
+                    </div>
+
+                    <!-- AI MENTOR WIDGET -->
+                    <div class="activity-card">
+                        <div class="card-title-row">
+                            <div>
+                                <span class="card-label">INTELLIGENT TUTOR</span>
+                                <h3>AI Mentor Insight</h3>
+                            </div>
+                            <a href="AiMentor.html" class="view-all">Chat Now →</a>
+                        </div>
+
+                        <div class="mentor-tip-box">
+                            <div class="mentor-avatar-mini">🤖</div>
+                            <div class="mentor-tip-text">
+                                <strong>Today's Coding Insight</strong>
+                                <p>"Functions in programming act like recipes. Give them ingredients (parameters), and they
+                                    return a finished result!"</p>
+                            </div>
+                        </div>
+                        <a href="AiMentor.html" class="ask-mentor-btn">Ask AI Mentor a Question →</a>
+                    </div>
+
+                    <!-- NEXT LEARNING MILESTONE -->
+                    <div class="milestone-card" id="nextMilestoneCard">
+                        <div class="milestone-icon">🎯</div>
+                        <div class="milestone-content">
+                            <span class="card-label">NEXT MILESTONE</span>
+                            <h3 id="milestoneTitle">Stage 1: Core Fundamentals</h3>
+                            <p id="milestoneDesc">Complete modules to unlock advanced concepts!</p>
+                            <div class="milestone-progress">
+                                <div id="milestoneProgressBar" style="width: 0%;"></div>
+                            </div>
+                            <span class="milestone-count" id="milestoneCount">0% Target</span>
+                        </div>
+                    </div>
+
+                </section>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- PREMIUM REWARD CELEBRATION MODAL -->
+    <div class="premium-celebration-backdrop" id="premiumCelebrationModal">
+        <div class="celebration-modal-card">
+            <div class="celebration-crown-wrap">👑</div>
+            <h2 class="celebration-title">🎉 Premium Reward Earned!</h2>
+            <p class="celebration-subtitle">
+                Sensational dedication! You have achieved another 200 minutes of active learning.
+            </p>
+            <div class="celebration-details-card">
+                <div class="celebration-stat-row">
+                    <span>Reward Added:</span>
+                    <strong id="modalDaysAdded">+1 Day Premium (24 Hours)</strong>
+                </div>
+                <div class="celebration-stat-row">
+                    <span>Minutes Deducted:</span>
+                    <strong id="modalMinutesDeducted">200 Minutes</strong>
+                </div>
+                <div class="celebration-stat-row">
+                    <span>New Expiry Date:</span>
+                    <strong id="modalNewExpiry">--</strong>
+                </div>
+            </div>
+            <button type="button" class="btn-celebration-close" id="btnCloseCelebrationModal">
+                Claim Reward & Continue Learning ⚡
+            </button>
+        </div>
+    </div>
+
+    <!-- LOCKED PREMIUM FEATURES MODAL -->
+    <div class="premium-celebration-backdrop" id="premiumLockedModal">
+        <div class="celebration-modal-card" style="max-width: 440px;">
+            <div class="celebration-crown-wrap" style="background: rgba(245, 158, 11, 0.15); border: 2px solid var(--gold-light); font-size: 2.2rem; width: 72px; height: 72px;">🔒</div>
+            <h3 class="celebration-title" style="font-size: 1.35rem;" id="lockedFeatureTitle">Premium Feature Locked</h3>
+            <p class="celebration-subtitle" style="font-size: 0.84rem;">
+                This exclusive privilege unlocks automatically through learning! Every 200 minutes of active practice grants 1 full day of Premium Membership.
+            </p>
+            <div class="celebration-details-card" style="text-align: left;">
+                <div class="celebration-stat-row">
+                    <span>Your Current Progress:</span>
+                    <strong id="lockedModalMinsEarned">0 / 200 Mins</strong>
+                </div>
+                <div class="celebration-stat-row">
+                    <span>Minutes Remaining:</span>
+                    <strong id="lockedModalMinsLeft">200 Mins</strong>
+                </div>
+            </div>
+            <button type="button" class="btn-celebration-close" id="btnCloseLockedModal">
+                Keep Learning to Unlock! 🚀
+            </button>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         SWITCH TRACK MODAL (REUSED SUBJECT-SELECTION COMPONENT)
+         ========================================================= -->
+    <div class="track-modal-overlay" id="trackModalOverlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="trackModalHeading">
+        <div class="track-modal-card">
+            <div class="track-modal-header">
+                <div>
+                    <span class="track-modal-pill">ACADEMIC CURRICULUM</span>
+                    <h2 id="trackModalHeading">Switch Learning Track</h2>
+                    <p class="track-modal-desc">Select a subject track to switch your interactive lessons, challenges, and dashboard curriculum.</p>
+                </div>
+                <button type="button" class="track-modal-close" id="closeTrackModal" aria-label="Close track switch modal">&times;</button>
+            </div>
+
+            <!-- REUSED LANGUAGE GRID FROM INDEX.HTML -->
+            <div class="language-grid" id="modalLangGrid">
+                <div class="lang-option" data-lang="Python" data-icon="🐍">
+                    <div class="lang-left">
+                        <div class="lang-icon">🐍</div>
+                        <div class="lang-info">
+                            <strong>Python</strong>
+                            <span>AI, Automation, Data Science & Web Backend</span>
+                        </div>
+                    </div>
+                    <div class="lang-radio"></div>
+                </div>
+
+                <div class="lang-option" data-lang="Java" data-icon="☕">
+                    <div class="lang-left">
+                        <div class="lang-icon">☕</div>
+                        <div class="lang-info">
+                            <strong>Java</strong>
+                            <span>Object-Oriented Architecture, Enterprise & Android</span>
+                        </div>
+                    </div>
+                    <div class="lang-radio"></div>
+                </div>
+
+                <div class="lang-option" data-lang="C++" data-icon="⚙️">
+                    <div class="lang-left">
+                        <div class="lang-icon">⚙️</div>
+                        <div class="lang-info">
+                            <strong>C++</strong>
+                            <span>Game Engines, High-Performance Systems & Algorithms</span>
+                        </div>
+                    </div>
+                    <div class="lang-radio"></div>
+                </div>
+
+                <div class="lang-option" data-lang="English" data-icon="🇬🇧">
+                    <div class="lang-left">
+                        <div class="lang-icon">🇬🇧</div>
+                        <div class="lang-info">
+                            <strong>Technical English</strong>
+                            <span>Code Reviews, Technical Documentation & Tech Interviews</span>
+                        </div>
+                    </div>
+                    <div class="lang-radio"></div>
+                </div>
+            </div>
+
+            <div class="track-modal-footer">
+                <button type="button" class="track-modal-btn cancel" id="cancelTrackModal">Cancel</button>
+                <button type="button" class="track-modal-btn confirm" id="confirmTrackSwitch">Confirm & Switch Track &rarr;</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/screen-time.js"></script>
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Admin Dashboard | LingoX Royal Academy</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Admin Custom CSS -->
+    <link rel="stylesheet" href="css/admin.css">
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+    <div class="admin-wrapper">
+
+        <!-- ==========================================================================
+             SIDEBAR NAVIGATION
+             ========================================================================== -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <div class="sidebar-brand">
+                <div class="brand-icon">
+                    <img src="assets/logo/bhasha-logo.jpeg" alt="LingoX">
+                </div>
+                <div class="brand-text">
+                    <h3>Lingo<span>X</span></h3>
+                    <span class="brand-badge"><i class="bi bi-shield-check me-1"></i> Admin Console</span>
+                </div>
+            </div>
+
+            <div class="sidebar-nav-container">
+                <div class="nav-section-title">Core Operations</div>
+                <ul class="sidebar-nav">
+                    <li>
+                        <button class="nav-link-btn active" data-tab="dashboard">
+                            <i class="bi bi-speedometer2"></i>
+                            <span>Dashboard</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="nav-link-btn" data-tab="students">
+                            <i class="bi bi-people"></i>
+                            <span>Students</span>
+                            <span class="nav-pill-badge" id="sidebarBadgeStudents">...</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="nav-link-btn" data-tab="quizzes">
+                            <i class="bi bi-patch-question"></i>
+                            <span>Quizzes</span>
+                            <span class="nav-pill-badge" id="sidebarBadgeQuizzes">...</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="nav-link-btn" data-tab="courses">
+                            <i class="bi bi-journal-code"></i>
+                            <span>Courses & Roadmap</span>
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="nav-section-title">Intelligence & Reports</div>
+                <ul class="sidebar-nav">
+                    <li>
+                        <button class="nav-link-btn" data-tab="analytics">
+                            <i class="bi bi-graph-up-arrow"></i>
+                            <span>Analytics & Reports</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="nav-link-btn" data-tab="settings">
+                            <i class="bi bi-sliders"></i>
+                            <span>Settings</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="nav-link-btn" data-tab="logs">
+                            <i class="bi bi-shield-check"></i>
+                            <span>Audit Logs</span>
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="nav-section-title">Quick Portals</div>
+                <ul class="sidebar-nav">
+                    <li>
+                        <a href="index.html" class="nav-link-btn" target="_blank">
+                            <i class="bi bi-mortarboard"></i>
+                            <span>Student Academy &rarr;</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="admin-profile-card">
+                    <div class="admin-avatar" id="sidebarAdminAvatar">A</div>
+                    <div class="admin-info">
+                        <div class="admin-name" id="sidebarAdminName">Administrator</div>
+                        <div class="admin-role">Super Admin Online</div>
+                    </div>
+                    <button class="btn-sidebar-logout" id="btnSidebarLogout" title="Sign Out">
+                        <i class="bi bi-box-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ==========================================================================
+             MAIN CONTENT & HEADER
+             ========================================================================== -->
+        <main class="admin-main">
+            <!-- Header -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button class="btn-sidebar-toggle" id="btnToggleSidebar">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <div class="page-breadcrumb">
+                        <h1>
+                            <span id="headerPageTitle">Dashboard Overview</span>
+                            <span class="badge-current-tab" id="headerTabBadge">LIVE MONITOR</span>
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <div class="header-system-time">
+                        <i class="bi bi-clock-history"></i>
+                        <span id="systemLiveClock">--:--:--</span>
+                    </div>
+
+                    <div class="header-actions">
+                        <button class="header-btn" id="btnHeaderExportReport" title="Export Quick CSV">
+                            <i class="bi bi-download"></i>
+                            <span>Export CSV</span>
+                        </button>
+                        <button class="header-btn btn-primary-action" id="btnHeaderQuickAdd">
+                            <i class="bi bi-plus-lg"></i>
+                            <span id="btnHeaderQuickAddText">Add Student</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dynamic Views Container -->
+            <div class="admin-content">
+
+                <!-- ==================================================================
+                     1. DASHBOARD VIEW
+                     ================================================================== -->
+                <div class="tab-view active" id="view-dashboard">
+                    <!-- Metric KPI Cards (6 Live Statistics) -->
+                    <div class="metrics-grid">
+                        <div class="glass-card metric-card">
+                            <div class="metric-icon-box metric-icon-students">
+                                <i class="bi bi-people-fill"></i>
+                            </div>
+                            <div class="metric-info">
+                                <div class="metric-label">Total Students</div>
+                                <div class="metric-value" id="kpiTotalStudents">--</div>
+                                <div class="metric-trend trend-up">
+                                    <i class="bi bi-arrow-up-right"></i> +12% enrolled
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card metric-card">
+                            <div class="metric-icon-box metric-icon-active">
+                                <i class="bi bi-activity"></i>
+                            </div>
+                            <div class="metric-info">
+                                <div class="metric-label">Active Users</div>
+                                <div class="metric-value" id="kpiActiveUsers">--</div>
+                                <div class="metric-trend trend-up">
+                                    <i class="bi bi-shield-check"></i> High engagement
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card metric-card">
+                            <div class="metric-icon-box metric-icon-quizzes">
+                                <i class="bi bi-patch-question-fill"></i>
+                            </div>
+                            <div class="metric-info">
+                                <div class="metric-label">Total Quizzes</div>
+                                <div class="metric-value" id="kpiTotalQuizzes">--</div>
+                                <div class="metric-trend trend-neutral">
+                                    <i class="bi bi-journal-check"></i> Across 4 tracks
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card metric-card">
+                            <div class="metric-icon-box metric-icon-score">
+                                <i class="bi bi-trophy-fill"></i>
+                            </div>
+                            <div class="metric-info">
+                                <div class="metric-label">Average Score</div>
+                                <div class="metric-value" id="kpiAverageScore">--%</div>
+                                <div class="metric-trend trend-up">
+                                    <i class="bi bi-graph-up-arrow"></i> Passing threshold 70%
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card metric-card">
+                            <div class="metric-icon-box metric-icon-registered">
+                                <i class="bi bi-person-check-fill"></i>
+                            </div>
+                            <div class="metric-info">
+                                <div class="metric-label">Registered Today</div>
+                                <div class="metric-value" id="kpiRegisteredToday">--</div>
+                                <div class="metric-trend trend-up">
+                                    <i class="bi bi-lightning-charge-fill"></i> New learners
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card metric-card">
+                            <div class="metric-icon-box metric-icon-rate">
+                                <i class="bi bi-pie-chart-fill"></i>
+                            </div>
+                            <div class="metric-info">
+                                <div class="metric-label">Completion Rate</div>
+                                <div class="metric-value" id="kpiCompletionRate">--%</div>
+                                <div class="metric-trend trend-up">
+                                    <i class="bi bi-check2-circle"></i> Syllabus progress
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Primary Charts Row -->
+                    <div class="charts-row-primary">
+                        <div class="glass-card">
+                            <div class="card-header-styled">
+                                <div class="card-title-group">
+                                    <h2>Student Submissions & Activity Trends</h2>
+                                    <div class="card-subtitle">Daily quiz assessments and active session history</div>
+                                </div>
+                                <span class="badge bg-primary bg-opacity-25 text-primary border border-primary border-opacity-50 px-2 py-1 rounded-pill">Last 7 Days</span>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="chartActivityTimeline"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="glass-card">
+                            <div class="card-header-styled">
+                                <div class="card-title-group">
+                                    <h2>Language Enrollment</h2>
+                                    <div class="card-subtitle">Distribution across Python, Java, C++, & English</div>
+                                </div>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="chartLanguageDistribution"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Secondary Row: Performance Radar & Recent Activity Feed -->
+                    <div class="charts-row-secondary">
+                        <div class="glass-card">
+                            <div class="card-header-styled">
+                                <div class="card-title-group">
+                                    <h2>Average Subject Proficiency</h2>
+                                    <div class="card-subtitle">Mean performance accuracy across syllabus modules</div>
+                                </div>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="chartSubjectProficiency"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="glass-card">
+                            <div class="card-header-styled">
+                                <div class="card-title-group">
+                                    <h2>Recent Student Activity</h2>
+                                    <div class="card-subtitle">Live stream of completed quizzes and earned XP</div>
+                                </div>
+                                <button class="btn btn-sm btn-outline-light" id="btnRefreshActivityFeed">
+                                    <i class="bi bi-arrow-clockwise"></i>
+                                </button>
+                            </div>
+                            <div id="recentActivityList" style="max-height: 310px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;">
+                                <div class="text-center py-4 text-muted">
+                                    <span class="spinner-border spinner-border-sm me-2"></span> Loading activities...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================================================================
+                     2. STUDENT MANAGEMENT VIEW
+                     ================================================================== -->
+                <div class="tab-view" id="view-students">
+                    <div class="glass-card">
+                        <div class="card-header-styled">
+                            <div class="card-title-group">
+                                <h2>Student Directory & Academic Records</h2>
+                                <div class="card-subtitle">Search, filter, edit, or provision student and instructor profiles</div>
+                            </div>
+                            <button class="btn btn-primary" id="btnAddNewStudent" style="background: var(--grad-primary); border: none; font-weight: 700; border-radius: 10px; padding: 8px 16px;">
+                                <i class="bi bi-person-plus-fill me-1"></i> Add New Student
+                            </button>
+                        </div>
+
+                        <!-- Toolbar -->
+                        <div class="filter-toolbar">
+                            <div class="filter-group-left">
+                                <div class="search-box-custom">
+                                    <i class="bi bi-search"></i>
+                                    <input type="text" id="studentSearchInput" class="search-input-custom" placeholder="Search by name, email, or Google ID...">
+                                </div>
+                                <select id="studentLanguageFilter" class="select-custom">
+                                    <option value="all">All Languages</option>
+                                    <option value="Python">Python</option>
+                                    <option value="Java">Java</option>
+                                    <option value="C++">C++</option>
+                                    <option value="English">English</option>
+                                </select>
+                                <select id="studentRoleFilter" class="select-custom">
+                                    <option value="all">All Roles</option>
+                                    <option value="learner">Learner</option>
+                                    <option value="scholar">Scholar</option>
+                                    <option value="admin">Administrator</option>
+                                </select>
+                            </div>
+                            <div class="filter-group-right" style="display: flex; align-items: center; gap: 10px;">
+                                <span class="text-muted" style="font-size: 0.84rem;" id="studentResultCount">Showing 0 students</span>
+                                <button class="btn-toolbar-action" id="btnExportCSV" title="Export Student Roster to CSV">
+                                    <i class="bi bi-filetype-csv"></i> <span>Export CSV</span>
+                                </button>
+                                <button class="btn-toolbar-action" id="btnExportPDF" title="Export Student Roster to PDF">
+                                    <i class="bi bi-file-earmark-pdf"></i> <span>Export PDF</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Students Table -->
+                        <div class="table-responsive-custom">
+                            <table class="table-custom" id="studentsTable">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 54px;">Photo</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Google ID</th>
+                                        <th>Registration Date</th>
+                                        <th>Last Login</th>
+                                        <th style="width: 140px;">Course Progress</th>
+                                        <th>Role</th>
+                                        <th style="text-align: right; width: 140px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="studentsTableBody">
+                                    <tr>
+                                        <td colspan="9" class="text-center py-4 text-muted">
+                                            <span class="spinner-border spinner-border-sm me-2"></span> Loading student roster...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Pagination Bar -->
+                        <div class="table-pagination-bar" id="studentPaginationBar">
+                            <div class="pagination-info" id="studentPaginationInfo">
+                                Showing Page 1 of 1 (0 total entries)
+                            </div>
+                            <div class="pagination-controls" id="studentPaginationControls">
+                                <button class="btn-page" id="btnPrevPage" disabled><i class="bi bi-chevron-left"></i> Previous</button>
+                                <span id="paginationPageNumbers" style="display: inline-flex; align-items: center; gap: 4px;"></span>
+                                <button class="btn-page" id="btnNextPage" disabled>Next <i class="bi bi-chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================================================================
+                     3. QUIZ MANAGEMENT VIEW
+                     ================================================================== -->
+                <div class="tab-view" id="view-quizzes">
+                    <div class="glass-card">
+                        <div class="card-header-styled">
+                            <div class="card-title-group">
+                                <h2>Quiz & Assessment Question Bank</h2>
+                                <div class="card-subtitle">Manage curriculum quiz questions, answer options, and explanations</div>
+                            </div>
+                            <button class="btn btn-primary" id="btnAddNewQuestion" style="background: var(--grad-primary); border: none; font-weight: 700; border-radius: 10px; padding: 8px 16px;">
+                                <i class="bi bi-patch-plus-fill me-1"></i> Add Question
+                            </button>
+                        </div>
+
+                        <!-- Toolbar -->
+                        <div class="filter-toolbar">
+                            <div class="filter-group-left">
+                                <div class="search-box-custom">
+                                    <i class="bi bi-search"></i>
+                                    <input type="text" id="quizSearchInput" class="search-input-custom" placeholder="Search questions or explanations...">
+                                </div>
+                                <select id="quizTrackFilter" class="select-custom">
+                                    <option value="all">All Tracks</option>
+                                    <option value="Python">Python</option>
+                                    <option value="Java">Java</option>
+                                    <option value="C++">C++</option>
+                                    <option value="English">English</option>
+                                </select>
+                                <select id="quizLessonFilter" class="select-custom">
+                                    <option value="">All Lessons</option>
+                                    <option value="1">Lesson 1</option>
+                                    <option value="2">Lesson 2</option>
+                                    <option value="3">Lesson 3</option>
+                                    <option value="4">Lesson 4</option>
+                                    <option value="5">Lesson 5</option>
+                                    <option value="6">Lesson 6</option>
+                                    <option value="7">Lesson 7</option>
+                                    <option value="8">Lesson 8</option>
+                                </select>
+                            </div>
+                            <div class="filter-group-right">
+                                <span class="text-muted" style="font-size: 0.84rem;" id="quizResultCount">Loading questions...</span>
+                            </div>
+                        </div>
+
+                        <!-- Quiz Cards Grid -->
+                        <div class="quiz-cards-grid" id="quizzesCardsContainer">
+                            <div class="text-center py-5 text-muted" style="grid-column: 1 / -1;">
+                                <span class="spinner-border spinner-border-sm me-2"></span> Loading quiz bank...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================================================================
+                     4. COURSE & ROADMAP VIEW
+                     ================================================================== -->
+                <div class="tab-view" id="view-courses">
+                    <!-- Track Selector -->
+                    <div class="course-track-selector" id="courseTrackSelector">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <!-- Lessons List Card -->
+                    <div class="glass-card mb-4">
+                        <div class="card-header-styled">
+                            <div class="card-title-group">
+                                <h2>Syllabus Lessons & Theories</h2>
+                                <div class="card-subtitle" id="selectedTrackSummary">Chapters under active track</div>
+                            </div>
+                            <button class="btn btn-outline-light btn-sm" id="btnAddNewLesson">
+                                <i class="bi bi-plus-circle me-1"></i> Add Chapter
+                            </button>
+                        </div>
+
+                        <div class="lessons-accordion" id="lessonsContainer">
+                            <div class="text-center py-4 text-muted">
+                                <span class="spinner-border spinner-border-sm me-2"></span> Loading chapters...
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Roadmap Stages Card -->
+                    <div class="glass-card">
+                        <div class="card-header-styled">
+                            <div class="card-title-group">
+                                <h2>Career Roadmap Phases & Milestones</h2>
+                                <div class="card-subtitle">Curriculum progression tiers from syntax foundations to professional mastery</div>
+                            </div>
+                            <button class="btn btn-outline-light btn-sm" id="btnAddRoadmapStage">
+                                <i class="bi bi-plus-lg me-1"></i> Add Phase
+                            </button>
+                        </div>
+
+                        <div class="roadmap-timeline-container" id="roadmapStagesContainer">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================================================================
+                     5. ANALYTICS & REPORTS VIEW
+                     ================================================================== -->
+                <div class="tab-view" id="view-analytics">
+                    <!-- Export Banner -->
+                    <div class="export-hero-card">
+                        <div class="export-hero-text">
+                            <h3><i class="bi bi-file-earmark-bar-graph-fill me-2 text-primary"></i> Academic Intelligence & Report Hub</h3>
+                            <p>Download comprehensive statistical summaries, student score distributions, and curriculum completion reports in CSV or ready-to-print executive PDF format.</p>
+                        </div>
+                        <div class="export-btn-group">
+                            <button class="btn-export btn-export-csv" id="btnExportStudentsCSV">
+                                <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                                <span>Export Students CSV</span>
+                            </button>
+                            <button class="btn-export btn-export-csv" id="btnExportQuizzesCSV">
+                                <i class="bi bi-file-earmark-text-fill"></i>
+                                <span>Export Quizzes CSV</span>
+                            </button>
+                            <button class="btn-export btn-export-pdf" id="btnExportPDFReport">
+                                <i class="bi bi-printer-fill"></i>
+                                <span>Print / Export PDF</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Analytics Cards -->
+                    <div class="metrics-grid mb-4">
+                        <div class="glass-card metric-card">
+                            <div class="metric-icon-box metric-icon-active">
+                                <i class="bi bi-trophy-fill"></i>
+                            </div>
+                            <div class="metric-info">
+                                <div class="metric-label">Overall Pass Rate</div>
+                                <div class="metric-value" id="analyticsPassRate">--%</div>
+                                <div class="metric-trend trend-up">Threshold: 70%+</div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card metric-card">
+                            <div class="metric-icon-box metric-icon-students">
+                                <i class="bi bi-patch-check-fill"></i>
+                            </div>
+                            <div class="metric-info">
+                                <div class="metric-label">Total Quiz Attempts</div>
+                                <div class="metric-value" id="analyticsTotalAttempts">--</div>
+                                <div class="metric-trend trend-up">Verified submissions</div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card metric-card">
+                            <div class="metric-icon-box metric-icon-languages">
+                                <i class="bi bi-award-fill"></i>
+                            </div>
+                            <div class="metric-info">
+                                <div class="metric-label">Badges Unlocked</div>
+                                <div class="metric-value" id="analyticsBadgesCount">--</div>
+                                <div class="metric-trend trend-neutral">Scholar milestones</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Row -->
+                    <div class="charts-row-secondary">
+                        <div class="glass-card">
+                            <div class="card-header-styled">
+                                <div class="card-title-group">
+                                    <h2>Quiz Score Distribution</h2>
+                                    <div class="card-subtitle">Frequency of scores from 0/5 to 5/5</div>
+                                </div>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="chartScoreDistribution"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="glass-card">
+                            <div class="card-header-styled">
+                                <div class="card-title-group">
+                                    <h2>Subject Completion Matrix</h2>
+                                    <div class="card-subtitle">Attempts and average marks by programming track</div>
+                                </div>
+                            </div>
+                            <div class="table-responsive-custom">
+                                <table class="table-custom">
+                                    <thead>
+                                        <tr>
+                                            <th>Subject</th>
+                                            <th>Attempts</th>
+                                            <th>Average Score</th>
+                                            <th>Accuracy %</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="analyticsSubjectMatrixBody">
+                                        <!-- Populated by JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================================================================
+                     6. SETTINGS VIEW
+                     ================================================================== -->
+                <div class="tab-view" id="view-settings">
+                    <div class="settings-grid">
+                        <!-- Platform Configurations -->
+                        <div class="glass-card">
+                            <div class="card-header-styled">
+                                <div class="card-title-group">
+                                    <h2>Platform & Syllabus Configuration</h2>
+                                    <div class="card-subtitle">Global academic thresholds and platform identity</div>
+                                </div>
+                            </div>
+
+                            <form id="settingsPlatformForm">
+                                <div class="form-group-custom">
+                                    <label class="form-label-custom" for="settingPlatformName">Platform / Academy Name</label>
+                                    <input type="text" id="settingPlatformName" class="form-control-custom" value="LingoX Royal Academy">
+                                </div>
+
+                                <div class="form-group-custom">
+                                    <label class="form-label-custom" for="settingDefaultLanguage">Default New Student Track</label>
+                                    <select id="settingDefaultLanguage" class="form-control-custom select-custom">
+                                        <option value="Python">Python</option>
+                                        <option value="Java">Java</option>
+                                        <option value="C++">C++</option>
+                                        <option value="English">English</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group-custom">
+                                    <label class="form-label-custom" for="settingPassScore">Minimum Quiz Passing Score (%)</label>
+                                    <input type="number" id="settingPassScore" class="form-control-custom" min="50" max="100" value="70">
+                                </div>
+
+                                <div class="form-group-custom">
+                                    <label class="form-label-custom" for="settingDailyGoal">Default Daily Study Goal (Minutes)</label>
+                                    <input type="number" id="settingDailyGoal" class="form-control-custom" min="5" max="120" value="15">
+                                </div>
+
+                                <button type="submit" class="btn btn-primary" style="background: var(--grad-primary); border: none; font-weight: 700; border-radius: 10px; padding: 10px 20px;">
+                                    <i class="bi bi-check2-circle me-1"></i> Save Platform Settings
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- AI Mentor Configurations -->
+                        <div class="glass-card">
+                            <div class="card-header-styled">
+                                <div class="card-title-group">
+                                    <h2>AI Mentor Engine</h2>
+                                    <div class="card-subtitle">Neural model tuning for natural & code tutoring</div>
+                                </div>
+                            </div>
+
+                            <form id="settingsAiForm">
+                                <div class="form-group-custom">
+                                    <label class="form-label-custom" for="settingAiModel">LLM Architecture Model</label>
+                                    <select id="settingAiModel" class="form-control-custom select-custom">
+                                        <option value="gemini-3.6-flash">Google Gemini 3.6 Flash (Fast & Responsive)</option>
+                                        <option value="gemini-3.8-flash">Google Gemini 3.8 Flash (High Reasoning)</option>
+                                        <option value="gemini-pro">Google Gemini Pro (Advanced Synthesis)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group-custom">
+                                    <label class="form-label-custom" for="settingAiTemp">Creativity & Temperature (0.0 to 1.0)</label>
+                                    <input type="number" step="0.1" min="0" max="1" id="settingAiTemp" class="form-control-custom" value="0.7">
+                                </div>
+
+                                <div class="p-3 rounded mb-3" style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); font-size: 0.82rem; color: var(--text-secondary);">
+                                    <i class="bi bi-cpu-fill text-primary me-2"></i> The AI Mentor intelligently evaluates code syntax, provides hints, and assesses English grammar proficiency in real-time.
+                                </div>
+
+                                <button type="submit" class="btn btn-outline-light" style="font-weight: 700; border-radius: 10px; padding: 10px 20px;">
+                                    <i class="bi bi-save me-1"></i> Update AI Configurations
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Security & Master Password -->
+                        <div class="glass-card" style="grid-column: 1 / -1;">
+                            <div class="card-header-styled">
+                                <div class="card-title-group">
+                                    <h2>Administrator Access Credentials</h2>
+                                    <div class="card-subtitle">Change master password for the active administrator account</div>
+                                </div>
+                            </div>
+
+                            <form id="settingsPasswordForm" style="max-width: 600px;">
+                                <div class="form-group-custom">
+                                    <label class="form-label-custom" for="settingCurPass">Current Administrator Password</label>
+                                    <input type="password" id="settingCurPass" class="form-control-custom" placeholder="••••••••" required>
+                                </div>
+
+                                <div class="form-group-custom">
+                                    <label class="form-label-custom" for="settingNewPass">New Secure Password (minimum 6 characters)</label>
+                                    <input type="password" id="settingNewPass" class="form-control-custom" placeholder="••••••••" minlength="6" required>
+                                </div>
+
+                                <button type="submit" class="btn btn-danger" style="background: var(--grad-rose); border: none; font-weight: 700; border-radius: 10px; padding: 10px 20px;">
+                                    <i class="bi bi-shield-lock-fill me-1"></i> Update Admin Password
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================================================================
+                     7. AUDIT LOGS VIEW
+                     ================================================================== -->
+                <div class="tab-view" id="view-logs">
+                    <div class="glass-card">
+                        <div class="card-header-styled">
+                            <div class="card-title-group">
+                                <h2>Administrative Audit Trail</h2>
+                                <div class="card-subtitle">Immutable chronological log of administrative operations, security events, and curriculum mutations</div>
+                            </div>
+                            <button class="btn btn-sm btn-outline-light" id="btnRefreshLogs">
+                                <i class="bi bi-arrow-clockwise me-1"></i> Refresh Logs
+                            </button>
+                        </div>
+
+                        <div class="table-responsive" style="margin-top: 15px;">
+                            <table class="table-custom">
+                                <thead>
+                                    <tr>
+                                        <th>Timestamp</th>
+                                        <th>Administrator</th>
+                                        <th>Action</th>
+                                        <th>Target</th>
+                                        <th>Details</th>
+                                        <th>IP Address</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="auditLogsTableBody">
+                                    <tr><td colspan="6" class="text-center py-4 text-muted"><span class="spinner-border spinner-border-sm me-2"></span> Loading audit logs...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- ==========================================================================
+         MODALS (ADD/EDIT/DELETE)
+         ========================================================================== -->
+
+    <!-- Modal: Add Student -->
+    <div class="modal-backdrop-custom" id="modalAddStudent">
+        <div class="modal-content-custom">
+            <div class="modal-header-custom">
+                <h3><i class="bi bi-person-plus-fill text-primary me-2"></i> Add New Student</h3>
+                <button type="button" class="btn-close-custom" data-close-modal="modalAddStudent">&times;</button>
+            </div>
+            <form id="formAddStudent">
+                <div class="modal-body-custom">
+                    <div class="form-group-custom">
+                        <label class="form-label-custom">Full Name</label>
+                        <input type="text" id="addStudentName" class="form-control-custom" placeholder="e.g. Johnathan Doe" required>
+                    </div>
+                    <div class="form-group-custom">
+                        <label class="form-label-custom">Email Address</label>
+                        <input type="email" id="addStudentEmail" class="form-control-custom" placeholder="student@example.com" required>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group-custom">
+                            <label class="form-label-custom">Google ID (Optional)</label>
+                            <input type="text" id="addStudentGoogleId" class="form-control-custom" placeholder="e.g. 10928374650192837465">
+                        </div>
+                        <div class="col-md-6 form-group-custom">
+                            <label class="form-label-custom">Profile Photo URL (Optional)</label>
+                            <input type="url" id="addStudentAvatar" class="form-control-custom" placeholder="https://...">
+                        </div>
+                    </div>
+                    <div class="form-group-custom">
+                        <label class="form-label-custom">Initial Password</label>
+                        <input type="password" id="addStudentPassword" class="form-control-custom" placeholder="At least 6 characters" minlength="6" required>
+                    </div>
+                    <div class="form-group-custom">
+                        <label class="form-label-custom">Primary Track</label>
+                        <select id="addStudentLanguage" class="form-control-custom select-custom">
+                            <option value="Python">Python</option>
+                            <option value="Java">Java</option>
+                            <option value="C++">C++</option>
+                            <option value="English">English</option>
+                        </select>
+                    </div>
+                    <div class="form-group-custom">
+                        <label class="form-label-custom">Role</label>
+                        <select id="addStudentRole" class="form-control-custom select-custom">
+                            <option value="learner">Learner</option>
+                            <option value="scholar">Scholar</option>
+                            <option value="admin">Administrator</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer-custom">
+                    <button type="button" class="btn btn-outline-light" data-close-modal="modalAddStudent">Cancel</button>
+                    <button type="submit" class="btn btn-primary" style="background: var(--grad-primary); border: none;">Create Account</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: Edit Student -->
+    <div class="modal-backdrop-custom" id="modalEditStudent">
+        <div class="modal-content-custom">
+            <div class="modal-header-custom">
+                <h3><i class="bi bi-pencil-square text-primary me-2"></i> Edit Student Profile</h3>
+                <button type="button" class="btn-close-custom" data-close-modal="modalEditStudent">&times;</button>
+            </div>
+            <form id="formEditStudent">
+                <input type="hidden" id="editStudentId">
+                <div class="modal-body-custom">
+                    <div class="form-group-custom">
+                        <label class="form-label-custom">Full Name</label>
+                        <input type="text" id="editStudentName" class="form-control-custom" required>
+                    </div>
+                    <div class="form-group-custom">
+                        <label class="form-label-custom">Email Address</label>
+                        <input type="email" id="editStudentEmail" class="form-control-custom" required>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group-custom">
+                            <label class="form-label-custom">Google ID</label>
+                            <input type="text" id="editStudentGoogleId" class="form-control-custom" placeholder="e.g. 10928374650192837465">
+                        </div>
+                        <div class="col-md-6 form-group-custom">
+                            <label class="form-label-custom">Profile Photo URL</label>
+                            <input type="url" id="editStudentAvatar" class="form-control-custom" placeholder="https://...">
+                        </div>
+                    </div>
+                    <div class="form-group-custom">
+                        <label class="form-label-custom">Primary Track</label>
+                        <select id="editStudentLanguage" class="form-control-custom select-custom">
+                            <option value="Python">Python</option>
+                            <option value="Java">Java</option>
+                            <option value="C++">C++</option>
+                            <option value="English">English</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group-custom">
+                            <label class="form-label-custom">Total XP</label>
+                            <input type="number" id="editStudentXp" class="form-control-custom" min="0">
+                        </div>
+                        <div class="col-md-6 form-group-custom">
+                            <label class="form-label-custom">Streak (Days)</label>
+                            <input type="number" id="editStudentStreak" class="form-control-custom" min="0">
+                        </div>
+                    </div>
+                    <div class="form-group-custom">
+                        <label class="form-label-custom">Role</label>
+                        <select id="editStudentRole" class="form-control-custom select-custom">
+                            <option value="learner">Learner</option>
+                            <option value="scholar">Scholar</option>
+                            <option value="admin">Administrator</option>
+                        </select>
+                    </div>
+                    <div class="form-group-custom">
+                        <label class="form-label-custom">Reset Password (Leave blank to keep current)</label>
+                        <input type="password" id="editStudentPassword" class="form-control-custom" placeholder="New password...">
+                    </div>
+                </div>
+                <div class="modal-footer-custom">
+                    <button type="button" class="btn btn-outline-light" data-close-modal="modalEditStudent">Cancel</button>
+                    <button type="submit" class="btn btn-primary" style="background: var(--grad-primary); border: none;">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: View Student Dossier -->
+    <div class="modal-backdrop-custom" id="modalViewStudent">
+        <div class="modal-content-custom" style="max-width: 920px; max-height: 90vh; display: flex; flex-direction: column;">
+            <div class="modal-header-custom" style="padding: 18px 24px;">
+                <div class="d-flex align-items-center gap-3">
+                    <div id="dossierAvatarContainer"></div>
+                    <div>
+                        <div class="d-flex align-items-center gap-2">
+                            <h3 id="dossierName" style="margin: 0; font-size: 1.25rem;">Student Name</h3>
+                            <span id="dossierRoleBadge" class="badge-role badge-role-learner">Learner</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 mt-1" style="font-size: 0.82rem; color: var(--text-secondary);">
+                            <span><i class="bi bi-envelope me-1"></i> <span id="dossierEmail">email</span></span>
+                            <span><i class="bi bi-google me-1"></i> <span id="dossierGoogleId">None</span></span>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn-close-custom" data-close-modal="modalViewStudent">&times;</button>
+            </div>
+            <div class="modal-body-custom" style="overflow-y: auto; padding: 20px 24px;">
+                <!-- Key Stats Grid -->
+                <div class="stats-pill-grid">
+                    <div class="stat-pill-card">
+                        <div class="stat-pill-label">Highest Score</div>
+                        <div class="stat-pill-val text-success" id="dossierHighestScore">0%</div>
+                    </div>
+                    <div class="stat-pill-card">
+                        <div class="stat-pill-label">Total Attempts</div>
+                        <div class="stat-pill-val text-primary" id="dossierTotalAttempts">0</div>
+                    </div>
+                    <div class="stat-pill-card">
+                        <div class="stat-pill-label">Time Spent</div>
+                        <div class="stat-pill-val" id="dossierTimeSpent">0m</div>
+                    </div>
+                    <div class="stat-pill-card">
+                        <div class="stat-pill-label">Course Progress</div>
+                        <div class="stat-pill-val" style="color: var(--cyan);" id="dossierProgressPercent">0%</div>
+                    </div>
+                    <div class="stat-pill-card">
+                        <div class="stat-pill-label">Registered Date</div>
+                        <div class="stat-pill-val" style="font-size: 0.95rem; line-height: 1.6;" id="dossierRegDate">--</div>
+                    </div>
+                    <div class="stat-pill-card">
+                        <div class="stat-pill-label">Last Active</div>
+                        <div class="stat-pill-val" style="font-size: 0.95rem; line-height: 1.6;" id="dossierLastLogin">--</div>
+                    </div>
+                </div>
+
+                <!-- Learning Progress across 4 Tracks -->
+                <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 12px; color: var(--text-primary);">
+                    <i class="bi bi-diagram-3-fill text-primary me-2"></i> Learning Progress Storage (4 Subjects / 14 Modules)
+                </h4>
+                <div class="subject-progress-grid" id="dossierSubjectsGrid">
+                    <!-- Populated dynamically: English, Python, Java, C++ with all syllabus modules -->
+                </div>
+
+                <!-- Quiz History Table -->
+                <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 12px; color: var(--text-primary); margin-top: 20px;">
+                    <i class="bi bi-clock-history text-primary me-2"></i> Quiz Assessment History
+                </h4>
+                <div class="table-responsive-custom" style="max-height: 240px; overflow-y: auto;">
+                    <table class="table-custom" style="font-size: 0.82rem;">
+                        <thead>
+                            <tr>
+                                <th>Quiz / Module</th>
+                                <th>Subject</th>
+                                <th>Score</th>
+                                <th>Percentage</th>
+                                <th>Status</th>
+                                <th>Attempts</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dossierQuizHistoryBody">
+                            <tr>
+                                <td colspan="7" class="text-center py-3 text-muted">No quiz submissions recorded yet.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Real Completed Lessons Table -->
+                <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 12px; color: var(--text-primary); margin-top: 20px;">
+                    <i class="bi bi-journal-check text-success me-2"></i> Completed Curriculum Lessons
+                </h4>
+                <div class="table-responsive-custom" style="max-height: 200px; overflow-y: auto;">
+                    <table class="table-custom" style="font-size: 0.82rem;">
+                        <thead>
+                            <tr>
+                                <th>Subject</th>
+                                <th>Lesson #</th>
+                                <th>Score</th>
+                                <th>XP Earned</th>
+                                <th>Status</th>
+                                <th>Last Updated</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dossierLessonsBody">
+                            <tr><td colspan="6" class="text-center py-3 text-muted">No completed lessons recorded yet.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Real Projects & Real Badges Row -->
+                <div class="row mt-3 g-3">
+                    <div class="col-md-6">
+                        <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 10px; color: var(--text-primary);">
+                            <i class="bi bi-code-square text-info me-2"></i> Saved Projects
+                        </h4>
+                        <div id="dossierProjectsList" style="display: flex; flex-direction: column; gap: 8px; max-height: 180px; overflow-y: auto;">
+                            <div class="text-muted" style="font-size: 0.82rem;">No saved projects.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 10px; color: var(--text-primary);">
+                            <i class="bi bi-award text-warning me-2"></i> Earned Badges
+                        </h4>
+                        <div id="dossierBadgesList" style="display: flex; flex-wrap: wrap; gap: 8px; max-height: 180px; overflow-y: auto;">
+                            <div class="text-muted" style="font-size: 0.82rem;">No badges unlocked yet.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer-custom" style="padding: 12px 24px;">
+                <button type="button" class="btn btn-outline-light" data-close-modal="modalViewStudent">Close Dossier</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Delete Confirmation -->
+    <div class="modal-backdrop-custom" id="modalDeleteConfirm">
+        <div class="modal-content-custom" style="max-width: 440px;">
+            <div class="modal-header-custom">
+                <h3 class="text-danger"><i class="bi bi-exclamation-triangle-fill me-2"></i> Confirm Deletion</h3>
+                <button type="button" class="btn-close-custom" data-close-modal="modalDeleteConfirm">&times;</button>
+            </div>
+            <div class="modal-body-custom">
+                <p id="deleteConfirmMessage" style="color: var(--text-secondary); font-size: 0.95rem; margin: 0;">Are you sure you want to delete this record? This action cannot be reversed.</p>
+            </div>
+            <div class="modal-footer-custom">
+                <button type="button" class="btn btn-outline-light" data-close-modal="modalDeleteConfirm">Cancel</button>
+                <button type="button" class="btn btn-danger" id="btnConfirmDeleteAction" style="background: var(--grad-rose); border: none;">Delete Permanently</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Add Question -->
+    <div class="modal-backdrop-custom" id="modalAddQuestion">
+        <div class="modal-content-custom">
+            <div class="modal-header-custom">
+                <h3><i class="bi bi-patch-question-fill text-primary me-2"></i> Add Quiz Question</h3>
+                <button type="button" class="btn-close-custom" data-close-modal="modalAddQuestion">&times;</button>
+            </div>
+            <form id="formAddQuestion">
+                <div class="modal-body-custom">
+                    <div class="row">
+                        <div class="col-md-6 form-group-custom">
+                            <label class="form-label-custom">Track</label>
+                            <select id="addQTrackSelect" class="form-control-custom select-custom" required>
+                                <option value="Python">Python Masterclass</option>
+                                <option value="Java">Java Royal Academy</option>
+                                <option value="C++">C++ Architecture</option>
+                                <option value="English">English Fluency</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 form-group-custom">
+                            <label class="form-label-custom">Target Chapter</label>
+                            <select id="addQLessonSelect" class="form-control-custom select-custom" required>
+                                <!-- Populated dynamically -->
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group-custom">
+                        <label class="form-label-custom">Question Prompt Text</label>
+                        <textarea id="addQText" class="form-control-custom" placeholder="Enter problem statement or question..." required></textarea>
+                    </div>
+
+                    <div class="form-group-custom">
+                        <label class="form-label-custom">Question Sub-Prompt / Instructions</label>
+                        <input type="text" id="addQDesc" class="form-control-custom" value="Choose the correct answer.">
+                    </div>
+
+                    <label class="form-label-custom mb-2">Options & Correct Answer</label>
+                    <div class="d-flex flex-column gap-2 mb-3">
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="radio" name="addQCorrectOpt" value="0" checked style="accent-color: var(--emerald);">
+                            <input type="text" class="form-control-custom" id="addQOpt0" placeholder="Option 1" required>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="radio" name="addQCorrectOpt" value="1" style="accent-color: var(--emerald);">
+                            <input type="text" class="form-control-custom" id="addQOpt1" placeholder="Option 2" required>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="radio" name="addQCorrectOpt" value="2" style="accent-color: var(--emerald);">
+                            <input type="text" class="form-control-custom" id="addQOpt2" placeholder="Option 3" required>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="radio" name="addQCorrectOpt" value="3" style="accent-color: var(--emerald);">
+                            <input type="text" class="form-control-custom" id="addQOpt3" placeholder="Option 4" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group-custom">
+                        <label class="form-label-custom">Explanation / Educational Rationale</label>
+                        <textarea id="addQExplanation" class="form-control-custom" placeholder="Why is this option correct?"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer-custom">
+                    <button type="button" class="btn btn-outline-light" data-close-modal="modalAddQuestion">Cancel</button>
+                    <button type="submit" class="btn btn-primary" style="background: var(--grad-primary); border: none;">Save Question</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: Edit Question -->
+    <div class="modal-backdrop-custom" id="modalEditQuestion">
+        <div class="modal-content-custom">
+            <div class="modal-header-custom">
+                <h3><i class="bi bi-pencil-square text-primary me-2"></i> Edit Quiz Question</h3>
+                <button type="button" class="btn-close-custom" data-close-modal="modalEditQuestion">&times;</button>
+            </div>
+            <form id="formEditQuestion">
+                <input type="hidden" id="editQId">
+                <div class="modal-body-custom">
+                    <div class="form-group-custom">
+                        <label class="form-label-custom">Question Prompt Text</label>
+                        <textarea id="editQText" class="form-control-custom" required></textarea>
+                    </div>
+
+                    <div class="form-group-custom">
+                        <label class="form-label-custom">Instructions</label>
+                        <input type="text" id="editQDesc" class="form-control-custom">
+                    </div>
+
+                    <label class="form-label-custom mb-2">Options & Correct Answer</label>
+                    <div class="d-flex flex-column gap-2 mb-3">
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="radio" name="editQCorrectOpt" value="0" id="editQRadio0" style="accent-color: var(--emerald);">
+                            <input type="text" class="form-control-custom" id="editQOpt0" required>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="radio" name="editQCorrectOpt" value="1" id="editQRadio1" style="accent-color: var(--emerald);">
+                            <input type="text" class="form-control-custom" id="editQOpt1" required>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="radio" name="editQCorrectOpt" value="2" id="editQRadio2" style="accent-color: var(--emerald);">
+                            <input type="text" class="form-control-custom" id="editQOpt2" required>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="radio" name="editQCorrectOpt" value="3" id="editQRadio3" style="accent-color: var(--emerald);">
+                            <input type="text" class="form-control-custom" id="editQOpt3" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group-custom">
+                        <label class="form-label-custom">Explanation</label>
+                        <textarea id="editQExplanation" class="form-control-custom"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer-custom">
+                    <button type="button" class="btn btn-outline-light" data-close-modal="modalEditQuestion">Cancel</button>
+                    <button type="submit" class="btn btn-primary" style="background: var(--grad-primary); border: none;">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: Edit Lesson Chapter -->
+    <div class="modal-backdrop-custom" id="modalEditLesson">
+        <div class="modal-content-custom">
+            <div class="modal-header-custom">
+                <h3><i class="bi bi-journal-text text-primary me-2"></i> Edit Lesson Chapter</h3>
+                <button type="button" class="btn-close-custom" data-close-modal="modalEditLesson">&times;</button>
+            </div>
+            <form id="formEditLesson">
+                <input type="hidden" id="editLessonId">
+                <div class="modal-body-custom">
+                    <div class="form-group-custom">
+                        <label class="form-label-custom">Chapter Title</label>
+                        <input type="text" id="editLessonTitle" class="form-control-custom" required>
+                    </div>
+                    <div class="form-group-custom">
+                        <label class="form-label-custom">Short Summary Description</label>
+                        <input type="text" id="editLessonDesc" class="form-control-custom">
+                    </div>
+                    <div class="form-group-custom">
+                        <label class="form-label-custom">Theory & Syllabus Content (Markdown / HTML supported)</label>
+                        <textarea id="editLessonTheory" class="form-control-custom" style="min-height: 160px; font-family: var(--font-code); font-size: 0.85rem;"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer-custom">
+                    <button type="button" class="btn btn-outline-light" data-close-modal="modalEditLesson">Cancel</button>
+                    <button type="submit" class="btn btn-primary" style="background: var(--grad-primary); border: none;">Update Chapter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container-custom" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="js/admin-api.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

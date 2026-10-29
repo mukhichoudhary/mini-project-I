@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LingoX | AI-Based Natural & Programming Language Proficiency System</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+    <!-- AMBIENT GLOW BACKGROUND -->
+    <div class="ambient-background">
+        <div class="ambient-orb ambient-orb-1"></div>
+        <div class="ambient-orb ambient-orb-2"></div>
+        <div class="ambient-orb ambient-orb-3"></div>
+        <div class="grid-mesh"></div>
+    </div>
+
+    <!-- MAIN PAGE WRAPPER -->
+    <main class="auth-page">
+
+        <!-- System Branding Badge -->
+        <header class="system-branding">
+            <div class="system-pill">
+                <span class="system-pill-dot"></span>
+                <span>AI-Based Natural & Programming Language Proficiency System</span>
+            </div>
+        </header>
+
+        <!-- GLASSMORPHIC AUTHENTICATION CARD -->
+        <div class="auth-card" id="authCard">
+
+            <!-- SUCCESS ANIMATION OVERLAY -->
+            <div class="otp-success-overlay" id="otpSuccessOverlay">
+                <div class="success-icon-wrap">
+                    <i class="bi bi-check-lg"></i>
+                </div>
+                <h3 class="success-title">Verification Successful!</h3>
+                <p class="success-sub" id="successRedirectMsg">Creating secure session and launching your academy dashboard...</p>
+            </div>
+
+            <!-- =========================================================
+                 VIEW 1: SIGN IN / CREATE ACCOUNT
+                 ========================================================= -->
+            <div class="login-view-container" id="loginViewContainer">
+
+                <!-- LIVE BACKEND & MULTI-DEVICE STATUS PILL -->
+                <div class="server-status-bar" id="serverStatusBar">
+                    <div class="status-left">
+                        <span class="status-indicator-dot" id="serverStatusDot"></span>
+                        <span id="serverStatusText">Detecting backend...</span>
+                    </div>
+                    <button type="button" class="btn-server-config" id="btnOpenServerModal">
+                        <i class="bi bi-broadcast-pin"></i> Multi-Device
+                    </button>
+                </div>
+
+                <div class="auth-header">
+                    <div class="auth-logo-badge">
+                        <img src="assets/logo/bhasha-logo.jpeg" alt="LingoX Logo">
+                    </div>
+                    <h1 id="authMainTitle">Welcome Back</h1>
+                    <p id="authSubTitle">Sign in to your personalized AI learning workspace.</p>
+                </div>
+
+                <!-- Auth Tabs (Sign In / Create Account) -->
+                <div class="auth-tabs">
+                    <button type="button" class="auth-tab-btn active" id="tabSignIn">Sign In</button>
+                    <button type="button" class="auth-tab-btn" id="tabSignUp">Create Account</button>
+                </div>
+
+                <!-- Alert Box -->
+                <div class="auth-alert" id="loginAlert">
+                    <i class="bi bi-exclamation-circle-fill"></i>
+                    <span id="loginAlertText"></span>
+                </div>
+
+
+                <!-- EMAIL / PASSWORD FORM -->
+                <form id="emailLoginForm" novalidate>
+
+                    <!-- Full Name (Sign Up Only) -->
+                    <div class="form-group" id="groupFullName" style="display: none;">
+                        <div class="form-label-row">
+                            <label class="form-label" for="inputFullName">Full Name</label>
+                        </div>
+                        <div class="input-glow-wrapper">
+                            <i class="bi bi-person input-icon-left"></i>
+                            <input type="text" id="inputFullName" class="auth-input" placeholder="e.g. Harshit Sharma">
+                        </div>
+                    </div>
+
+                    <!-- Email Input -->
+                    <div class="form-group">
+                        <div class="form-label-row">
+                            <label class="form-label" for="inputEmail">Email Address</label>
+                        </div>
+                        <div class="input-glow-wrapper">
+                            <i class="bi bi-envelope input-icon-left"></i>
+                            <input type="email" id="inputEmail" class="auth-input" placeholder="name@example.com" required>
+                        </div>
+                    </div>
+
+                    <!-- Password Input -->
+                    <div class="form-group">
+                        <div class="form-label-row">
+                            <label class="form-label" for="inputPassword">Password</label>
+                            <a href="#" class="form-link" id="linkForgotPassword">Forgot?</a>
+                        </div>
+                        <div class="input-glow-wrapper">
+                            <i class="bi bi-lock input-icon-left"></i>
+                            <input type="password" id="inputPassword" class="auth-input" placeholder="Min. 6 characters" required>
+                            <button type="button" class="toggle-pwd-btn" id="btnTogglePassword" aria-label="Toggle password visibility">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Keep me signed in -->
+                    <div class="remember-row" id="groupRemember">
+                        <label class="remember-label">
+                            <input type="checkbox" id="checkRemember" checked>
+                            <span>Keep me signed in for 7 days</span>
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn-auth-primary" id="btnSubmitEmail">
+                        <span id="btnSubmitText">Enter Academy</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+                </form>
+
+                <!-- Footer Switches -->
+                <div class="auth-footer">
+                    <p id="footerToggleText">
+                        New to LingoX?
+                        <a href="#" id="linkSwitchMode">Create an account</a>
+                    </p>
+                    <p style="margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+                        <a href="admin-login.html" id="linkAdminLogin" style="font-size: 0.84rem; color: #34d399; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; text-decoration: none;">
+                            <i class="bi bi-shield-lock-fill"></i> Administrator Sign In &rarr;
+                        </a>
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- =========================================================
+                 VIEW 2: EMAIL OTP 2FA VERIFICATION
+                 ========================================================= -->
+            <div class="otp-view-container" id="otpViewContainer">
+
+                <div class="otp-mail-badge">
+                    <i class="bi bi-envelope-check-fill" style="color: #34d399;"></i>
+                </div>
+
+                <div class="auth-header" style="margin-bottom: 16px;">
+                    <h1>Verify Your Identity</h1>
+                    <p>Enter the 6-digit security OTP sent to your email address.</p>
+                </div>
+
+                <!-- Recipient Info Card -->
+                <div class="otp-target-card">
+                    <div class="otp-target-info">
+                        <img src="https://lh3.googleusercontent.com/a/default-user" alt="User Avatar" class="otp-user-avatar" id="otpAvatar">
+                        <span class="otp-user-email" id="otpTargetEmail">user@gmail.com</span>
+                    </div>
+                    <button type="button" class="btn-change-account" id="btnBackToLogin">Switch</button>
+                </div>
+
+                <!-- OTP Alert Box -->
+                <div class="auth-alert" id="otpAlert">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    <span id="otpAlertText"></span>
+                </div>
+
+                <!-- Dev OTP Display Banner (Auto-populated if SMTP credentials unconfigured) -->
+                <div id="devOtpBox" style="display: none; background: rgba(16, 185, 129, 0.1); border: 1px dashed #10b981; border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; font-size: 0.85rem; color: #34d399; text-align: center;">
+                    <span>Dev Verification Code: <strong id="devOtpCode" style="font-family: monospace; letter-spacing: 2px;"></strong></span>
+                </div>
+
+                <!-- 6 INDIVIDUAL OTP INPUT BOXES -->
+                <div class="otp-boxes-grid" id="otpBoxesGrid">
+                    <input type="text" class="otp-digit-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" data-index="0" autocomplete="one-time-code" autofocus>
+                    <input type="text" class="otp-digit-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" data-index="1">
+                    <input type="text" class="otp-digit-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" data-index="2">
+                    <input type="text" class="otp-digit-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" data-index="3">
+                    <input type="text" class="otp-digit-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" data-index="4">
+                    <input type="text" class="otp-digit-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" data-index="5">
+                </div>
+
+                <!-- Meta Row: Expiry Countdown & Resend Button -->
+                <div class="otp-meta-row">
+                    <div class="otp-timer-badge" id="otpTimerBadge">
+                        <i class="bi bi-stopwatch"></i>
+                        <span id="otpTimerText">05:00</span>
+                    </div>
+
+                    <button type="button" class="btn-resend-otp" id="btnResendOtp" disabled>
+                        <i class="bi bi-arrow-clockwise"></i>
+                        <span id="resendText">Resend (<span id="resendCooldown">60s</span>)</span>
+                    </button>
+                </div>
+
+                <!-- Verify Button -->
+                <button type="button" class="btn-auth-primary" id="btnVerifyOtp">
+                    <span id="btnVerifyText">Verify & Continue</span>
+                    <i class="bi bi-shield-check"></i>
+                </button>
+
+                <div class="auth-footer" style="margin-top: 18px;">
+                    <p style="font-size: 0.78rem; color: #6B7280;">
+                        Security Notice: Code expires in 5 minutes. Maximum 5 attempts allowed.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="back-to-home">
+            <a href="index.html"><i class="bi bi-arrow-left"></i> Back to LingoX Home</a>
+        </div>
+
+    </main>
+
+
+
+    <!-- Multi-Device & Server Connection Modal -->
+    <div class="server-modal-backdrop" id="serverModal">
+        <div class="server-modal-card">
+            <div class="server-modal-header">
+                <div class="server-modal-title">
+                    <i class="bi bi-hdd-network-fill" style="color: #34d399;"></i>
+                    <span>Multi-Device Connection</span>
+                </div>
+                <button type="button" class="server-modal-close" id="btnCloseServerModal">&times;</button>
+            </div>
+
+            <!-- Current Connection Status -->
+            <div style="margin-bottom: 14px; font-size: 0.85rem; color: #94a3b8; display: flex; align-items: center; justify-content: space-between;">
+                <span>Server Status: <strong id="modalServerStatus" style="color: #34d399;">Checking...</strong></span>
+                <span id="modalPingBadge" style="font-size: 0.75rem; color: #64748b;"></span>
+            </div>
+
+            <!-- Open on Another Device (Phone / Tablet / Laptop) -->
+            <div class="device-url-box">
+                <div class="device-url-title">
+                    <i class="bi bi-phone"></i>
+                    <span>Connect From Another Device (Phone / Tablet)</span>
+                </div>
+                <p style="font-size: 0.78rem; color: #94a3b8; margin-bottom: 8px;">
+                    Ensure both devices are on the same Wi-Fi network, then open this address:
+                </p>
+                <div class="device-url-link-row">
+                    <div class="device-url-code" id="lanUrlDisplay">http://10.87.150.150:8000/login.html</div>
+                    <button type="button" class="btn-copy-url" id="btnCopyLanUrl">
+                        <i class="bi bi-clipboard"></i> Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- Custom Server URL Field -->
+            <div style="margin-bottom: 16px;">
+                <label style="display: block; font-size: 0.8rem; color: #cbd5e1; margin-bottom: 6px; font-weight: 600;">
+                    Backend Server URL:
+                </label>
+                <div style="display: flex; gap: 8px;">
+                    <input type="text" id="inputBackendUrl" class="auth-input" style="padding-left: 12px; font-family: monospace; font-size: 0.84rem;" placeholder="http://10.87.150.150:8000">
+                    <button type="button" id="btnSaveBackendUrl" style="background: #10b981; border: none; color: #fff; padding: 0 16px; border-radius: 8px; font-weight: 700; cursor: pointer; white-space: nowrap;">
+                        Save & Test
+                    </button>
+                </div>
+                <div style="display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap;">
+                    <button type="button" id="btnSetLocalhost" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: #cbd5e1; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; cursor: pointer;">
+                        💻 This Computer (Localhost)
+                    </button>
+                    <button type="button" id="btnSetLanIp" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: #cbd5e1; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; cursor: pointer;">
+                        📱 Wi-Fi IP (10.87.150.150)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Server Start Instructions -->
+            <div style="background: rgba(0,0,0,0.3); border-radius: 8px; padding: 12px; font-size: 0.76rem; color: #94a3b8; border: 1px solid rgba(255,255,255,0.06);">
+                <div style="color: #f59e0b; font-weight: 700; margin-bottom: 4px;">
+                    <i class="bi bi-info-circle"></i> Need to start the backend server?
+                </div>
+                In project folder, open terminal and run: <code style="color: #34d399; font-weight: 600;">python backend/run.py</code><br>
+                or double-click <code style="color: #34d399; font-weight: 600;">start-server.bat</code>.
+            </div>
+        </div>
+    </div>
+
+    <!-- Password Recovery Modal -->
+    <div class="server-modal-backdrop" id="forgotPasswordModal" style="display: none;">
+        <div class="server-modal-card">
+            <div class="server-modal-header">
+                <div class="server-modal-title">
+                    <i class="bi bi-shield-lock-fill" style="color: #34d399;"></i>
+                    <span>Reset Your Password</span>
+                </div>
+                <button type="button" class="server-modal-close" id="btnCloseForgotModal">&times;</button>
+            </div>
+
+            <p style="font-size: 0.84rem; color: #94a3b8; margin-bottom: 16px; line-height: 1.5;">
+                Enter the email address associated with your account. We will send you a secure, single-use password recovery link valid for 15 minutes.
+            </p>
+
+            <div class="auth-alert" id="forgotAlert" style="display: none; margin-bottom: 16px;">
+                <i class="bi bi-info-circle-fill"></i>
+                <span id="forgotAlertText"></span>
+            </div>
+
+            <form id="forgotPasswordForm" novalidate>
+                <div class="form-group" style="margin-bottom: 16px;">
+                    <div class="input-glow-wrapper">
+                        <i class="bi bi-envelope input-icon-left"></i>
+                        <input type="email" id="inputForgotEmail" class="auth-input" placeholder="student@example.com" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-auth-primary" id="btnSubmitForgot" style="width: 100%;">
+                    <span id="btnSubmitForgotText">Send Recovery Link</span>
+                    <i class="bi bi-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="js/api.js"></script>
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>

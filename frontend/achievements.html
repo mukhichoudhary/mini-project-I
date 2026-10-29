@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Achievements & Mastery | LingoX</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/achievements.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <img src="assets/logo/bhasha-logo.jpeg" alt="LingoX Logo">
+            <div>
+                <h2>Lingo<span>X</span></h2>
+                <span class="subtitle">Academy of Code</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <span>Home</span>
+            </a>
+
+            <a href="roadmap.html" class="nav-item">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
+                <span>Roadmaps</span>
+            </a>
+
+            <a href="lesson.html" class="nav-item">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                <span>Learn</span>
+            </a>
+
+            <a href="projects.html" class="nav-item">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg></span>
+                <span>Projects</span>
+            </a>
+
+            <a href="achievements.html" class="nav-item active">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+                <span>Achievements</span>
+            </a>
+
+            <a href="leaderboard.html" class="nav-item">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-2.34"/><path d="M18 14.66V17c0 .55-.45 1-1 1h-2c-.55 0-1-.45-1-1v-2.34"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></span>
+                <span>Leaderboard</span>
+            </a>
+
+            <a href="AiMentor.html" class="nav-item">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 3.4 2.1 6.3 5.1 7.4L9 21l3.5-1.5L16 21l-.1-3.6C18.9 16.3 21 13.4 21 10a8 8 0 0 0-8-8z"/><circle cx="9" cy="10" r="1"/><circle cx="15" cy="10" r="1"/><path d="M9.5 14c.8.6 1.6.8 2.5.8s1.7-.2 2.5-.8"/></svg></span>
+                <span>AI Mentor</span>
+            </a>
+
+            <a href="settings.html" class="nav-item">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></span>
+                <span>Settings</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="streak-box">
+                <span class="fire">🔥</span>
+                <div>
+                    <strong id="sidebarStreak">0 Day Streak</strong>
+                    <small>Keep learning daily!</small>
+                </div>
+            </div>
+
+            <a href="login.html" class="signout-link">
+                <span>←</span>
+                <span>Sign Out</span>
+            </a>
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+            <div class="search-box">
+                <span>⌕</span>
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search achievements, courses & milestones..."
+                >
+            </div>
+
+            <div class="profile-area">
+                <div class="top-stat" id="topStreakBox">
+                    🔥 <strong id="topStreak">0</strong>
+                </div>
+
+                <div class="top-stat" id="topXpBox">
+                    ⚡ <strong id="topXp">0 XP</strong>
+                </div>
+
+                <div class="profile">
+                    <div class="profile-avatar" id="topAvatar">S</div>
+                    <div class="profile-info">
+                        <strong id="learnerName">Scholar</strong>
+                        <small id="learnerSubtitle">Level 1 Scholar</small>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- NOTIFICATION BANNERS -->
+        <div id="errorBanner" class="error-banner" style="display: none;"></div>
+        <div id="guestBanner" class="guest-banner" style="display: none;"></div>
+
+        <!-- PAGE HEADER -->
+        <section class="page-header">
+            <div class="header-text">
+                <span class="section-label">PROGRESSION REPOSITORY</span>
+                <h1>Honors & Milestones</h1>
+                <p>Track your programming journey, unlock badges, and upgrade your journey vehicle.</p>
+            </div>
+
+            <div class="level-card">
+                <div class="level-circle">
+                    <span>LVL</span>
+                    <strong id="levelNum">1</strong>
+                </div>
+                <div class="level-details">
+                    <span class="level-label">CURRENT RANK</span>
+                    <strong id="levelXp">0 XP</strong>
+                    <div class="level-progress-bar">
+                        <div id="levelProgressBar" style="width: 0%;"></div>
+                    </div>
+                    <small id="levelXpSubtext">300 XP to Level 2</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================
+             PROGRESS TILL NOW ROAD PROGRESS ARENA
+        ================================================== -->
+        <section class="road-progress-section">
+            <div class="road-section-header">
+                <div class="road-header-left">
+                    <span class="road-badge">OVERALL CURRICULUM ADVANCEMENT</span>
+                    <h2>Progress Till Now</h2>
+                </div>
+                <div class="road-header-right">
+                    <span class="road-status-badge" id="tierCategory">STAGE 2 • INTERMEDIATE PRACTICE</span>
+                    <div class="vehicle-tier-name" id="tierTitle">Overall Progress: 40%</div>
+                </div>
+            </div>
+
+            <div class="road-arena" id="roadArena">
+                <div class="wavy-road-box" id="wavyRoadBox">
+                    <svg class="wavy-road-svg" id="wavyRoadSvg" viewBox="0 0 1000 160" preserveAspectRatio="none">
+                        <defs>
+                            <linearGradient id="roadAsphaltGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#1E3321" />
+                                <stop offset="50%" stop-color="#28422C" />
+                                <stop offset="100%" stop-color="#1B301E" />
+                            </linearGradient>
+                            <linearGradient id="roadFillGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#2E7D32" />
+                                <stop offset="60%" stop-color="#43A047" />
+                                <stop offset="100%" stop-color="#81C784" />
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Road Embankment / Border -->
+                        <path class="wavy-road-embankment" d="M 35,115 C 220,25 380,155 580,80 C 740,15 860,140 965,65" fill="none" stroke="#D7E5D9" stroke-width="52" stroke-linecap="round" />
+
+                        <!-- Asphalt Road Layer -->
+                        <path id="wavyRoadPath" class="wavy-road-asphalt" d="M 35,115 C 220,25 380,155 580,80 C 740,15 860,140 965,65" fill="none" stroke="url(#roadAsphaltGrad)" stroke-width="42" stroke-linecap="round" />
+
+                        <!-- Glowing Emerald Progress Fill -->
+                        <path id="wavyRoadProgressFill" class="wavy-road-progress" d="M 35,115 C 220,25 380,155 580,80 C 740,15 860,140 965,65" fill="none" stroke="url(#roadFillGrad)" stroke-width="42" stroke-linecap="round" stroke-dasharray="1050" stroke-dashoffset="550" />
+
+                        <!-- White Dashed Centerline -->
+                        <path class="wavy-road-centerline" d="M 35,115 C 220,25 380,155 580,80 C 740,15 860,140 965,65" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-dasharray="14 12" opacity="0.85" />
+                    </svg>
+
+                    <!-- Milestone Pin Markers on the Curve -->
+                    <div class="wavy-milestone-marker" id="pin0"><span>0%</span><small>Start</small></div>
+                    <div class="wavy-milestone-marker" id="pin25"><span>25%</span><small>Basics</small></div>
+                    <div class="wavy-milestone-marker" id="pin50"><span>50%</span><small>Core</small></div>
+                    <div class="wavy-milestone-marker" id="pin75"><span>75%</span><small>Advanced</small></div>
+                    <div class="wavy-milestone-marker" id="pin100"><span>100%</span><small>Mastery 🏆</small></div>
+
+                    <!-- UNBOXED DIRECT CAR PHOTO -->
+                    <div class="wavy-car-anchor" id="wavyCarAnchor">
+                        <div class="wavy-car-rotator" id="wavyCarRotator">
+                            <img src="assets/cars/car_stage2.png" alt="Progress Vehicle" id="carPhotoImg" class="wavy-car-img">
+                            <div class="wavy-car-tag" id="carProgressTag">Progress: 40%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROGRESS LEVEL PREVIEW CONTROLS -->
+            <div class="evolution-controller">
+                <span class="ctrl-label">PREVIEW PROGRESS MILESTONES:</span>
+                <div class="tier-buttons" id="tierButtons">
+                    <button class="tier-btn active" id="btnMyProgress" data-progress="0">
+                        🎯 My Progress (0%)
+                    </button>
+                    <button class="tier-btn" data-progress="15">
+                        🌱 Stage 1: Basics (15%)
+                    </button>
+                    <button class="tier-btn" data-progress="40">
+                        🌿 Stage 2: Core (40%)
+                    </button>
+                    <button class="tier-btn" data-progress="70">
+                        ⭐ Stage 3: Advanced (70%)
+                    </button>
+                    <button class="tier-btn" data-progress="100">
+                        🏆 Stage 4: Mastery (100%)
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS GRID -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">📚</div>
+                <div>
+                    <span>LESSONS COMPLETED</span>
+                    <strong id="statLessonsCompleted">0</strong>
+                    <small id="statLessonsTotal">of 32 lessons total</small>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">🎓</div>
+                <div>
+                    <span>COURSES COMPLETED</span>
+                    <strong id="statCoursesCompleted">0</strong>
+                    <small id="statCoursesTotal">of 4 courses</small>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">⚡</div>
+                <div>
+                    <span>TOTAL EXPERIENCE</span>
+                    <strong id="statTotalXp">0</strong>
+                    <small>XP gathered</small>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">🔥</div>
+                <div>
+                    <span>LONGEST STREAK</span>
+                    <strong id="statLongestStreak">0</strong>
+                    <small>consecutive days</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- COURSE PROGRESS -->
+        <section class="courses-section">
+            <div class="section-heading">
+                <div>
+                    <h2>Curriculum Mastery</h2>
+                    <p>Track your verified progress across all languages and tracks.</p>
+                </div>
+            </div>
+
+            <div class="course-grid" id="courseGrid">
+                <div class="achievements-loading">
+                    <div class="achievements-spinner"></div>
+                    <span>Loading verified course mastery...</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================
+             ACHIEVEMENT BADGES WITH VISUAL PROGRESS BARS
+        ================================================== -->
+        <section class="badges-section">
+            <div class="section-heading">
+                <div>
+                    <h2>Achievement Badges</h2>
+                    <p>Complete milestones to unlock honors and elevate your programming expertise.</p>
+                </div>
+                <span class="badge-count" id="badgeCount">0 / 10 Unlocked</span>
+            </div>
+
+            <div class="badge-grid" id="badgeGrid">
+                <div class="achievements-loading">
+                    <div class="achievements-spinner"></div>
+                    <span>Loading achievement records...</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/achievements.js"></script>
+
+</body>
+
+</html>

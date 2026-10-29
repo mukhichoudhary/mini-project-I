@@ -1,0 +1,429 @@
+/* =========================================================
+   LingoX - Earnable Premium Membership Styling
+   AI-Based Natural & Programming Language Proficiency System
+   Gold Gradient Design, Circular Progress Ring & Celebration Modal
+   ========================================================= */
+
+:root {
+    --gold-primary: #f59e0b;
+    --gold-light: #fbbf24;
+    --gold-bright: #fde68a;
+    --gold-dark: #b45309;
+    --gold-deep: #78350f;
+    --gold-glow: rgba(245, 158, 11, 0.4);
+    --gold-gradient: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+    --gold-gradient-subtle: linear-gradient(145deg, rgba(251, 191, 36, 0.12) 0%, rgba(245, 158, 11, 0.04) 100%);
+}
+
+/* =========================================
+   EARNED PREMIUM MEMBERSHIP CARD
+========================================= */
+.premium-membership-card {
+    background: linear-gradient(155deg, rgba(24, 38, 28, 0.96) 0%, rgba(16, 26, 19, 0.98) 100%);
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    border-radius: 18px;
+    padding: 24px 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 14px 34px rgba(0, 0, 0, 0.4),
+        0 0 25px rgba(245, 158, 11, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 28px;
+}
+
+.premium-membership-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #b45309, #f59e0b, #fbbf24, #f59e0b, #b45309);
+    background-size: 200% 100%;
+    animation: goldShimmer 4s linear infinite;
+}
+
+@keyframes goldShimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+.premium-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.premium-title-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.premium-crown-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--gold-gradient-subtle);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.45rem;
+    box-shadow: 0 0 16px rgba(245, 158, 11, 0.2);
+}
+
+.premium-title-text h3 {
+    font-family: "Outfit", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 2px;
+}
+
+.premium-title-text p {
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+/* Premium Status Pill */
+.premium-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.premium-status-badge.active {
+    background: rgba(245, 158, 11, 0.18);
+    border: 1px solid var(--gold-light);
+    color: var(--gold-light);
+    box-shadow: 0 0 14px rgba(245, 158, 11, 0.3);
+    animation: goldPulse 2.5s infinite ease-in-out;
+}
+
+.premium-status-badge.free {
+    background: rgba(148, 163, 184, 0.12);
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    color: #cbd5e1;
+}
+
+@keyframes goldPulse {
+    0%, 100% { box-shadow: 0 0 12px rgba(245, 158, 11, 0.25); }
+    50% { box-shadow: 0 0 22px rgba(245, 158, 11, 0.55); }
+}
+
+/* =========================================
+   BODY: CIRCULAR RING + STATS GRID
+========================================= */
+.premium-card-body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 28px;
+    align-items: center;
+}
+
+/* Circular Progress Ring */
+.progress-ring-wrapper {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    flex-shrink: 0;
+}
+
+.progress-ring-svg {
+    transform: rotate(-90deg);
+    width: 140px;
+    height: 140px;
+}
+
+.progress-ring-track {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.08);
+    stroke-width: 10;
+}
+
+.progress-ring-fill {
+    fill: none;
+    stroke: url(#goldRingGradient);
+    stroke-width: 10;
+    stroke-linecap: round;
+    stroke-dasharray: 377;
+    stroke-dashoffset: 377;
+    transition: stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.55));
+}
+
+.progress-ring-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.progress-ring-mins {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.1;
+}
+
+.progress-ring-sub {
+    font-size: 0.68rem;
+    color: var(--gold-light);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Premium Stats Grid */
+.premium-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 14px;
+}
+
+.premium-stat-box {
+    background: rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-box-label {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.stat-box-value {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #FFFFFF;
+}
+
+.stat-box-value.highlight {
+    color: var(--gold-light);
+}
+
+/* Bottom Progress Description */
+.premium-rule-banner {
+    margin-top: 20px;
+    background: rgba(245, 158, 11, 0.06);
+    border: 1px dashed rgba(245, 158, 11, 0.3);
+    border-radius: 10px;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #cbd5e1;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.premium-rule-banner strong {
+    color: var(--gold-light);
+}
+
+/* =========================================
+   LOCKED CONTENT OVERLAY & ICONS
+========================================= */
+.locked-feature-card {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.locked-badge-indicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(20, 20, 20, 0.85);
+    border: 1px solid rgba(245, 158, 11, 0.5);
+    color: var(--gold-light);
+    border-radius: 9999px;
+    padding: 4px 10px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    backdrop-filter: blur(8px);
+    z-index: 2;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Navbar Premium Crown */
+.nav-premium-crown {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    background: var(--gold-gradient-subtle);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    color: var(--gold-light);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.nav-premium-crown:hover {
+    background: rgba(245, 158, 11, 0.2);
+    border-color: var(--gold-light);
+    transform: translateY(-1px);
+}
+
+/* =========================================
+   PREMIUM REWARD CELEBRATION MODAL
+========================================= */
+.premium-celebration-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 10, 8, 0.88);
+    backdrop-filter: blur(14px);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeInModal 0.3s ease forwards;
+}
+
+.celebration-modal-card {
+    background: linear-gradient(160deg, #1b2820 0%, #101c15 100%);
+    border: 2px solid var(--gold-light);
+    border-radius: 24px;
+    padding: 40px 32px;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    box-shadow: 
+        0 25px 60px rgba(0, 0, 0, 0.8),
+        0 0 60px rgba(245, 158, 11, 0.3);
+    animation: popModal 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes popModal {
+    0% { transform: scale(0.6); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.celebration-crown-wrap {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: var(--gold-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    box-shadow: 0 0 35px rgba(245, 158, 11, 0.6);
+    animation: bounceCrown 2s infinite ease-in-out;
+}
+
+@keyframes bounceCrown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.celebration-title {
+    font-family: "Outfit", sans-serif;
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+}
+
+.celebration-subtitle {
+    font-size: 0.92rem;
+    color: #cbd5e1;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.celebration-details-card {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.celebration-stat-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.84rem;
+}
+
+.celebration-stat-row span {
+    color: #94a3b8;
+}
+
+.celebration-stat-row strong {
+    color: var(--gold-light);
+    font-family: "JetBrains Mono", monospace;
+}
+
+.btn-celebration-close {
+    width: 100%;
+    background: var(--gold-gradient);
+    border: none;
+    border-radius: 12px;
+    padding: 14px 24px;
+    color: #1a1a1a;
+    font-family: "Outfit", sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4);
+    transition: all 0.2s ease;
+}
+
+.btn-celebration-close:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(245, 158, 11, 0.6);
+}
+
+@media (max-width: 640px) {
+    .premium-card-body {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+    
+    .premium-stats-grid {
+        width: 100%;
+    }
+}

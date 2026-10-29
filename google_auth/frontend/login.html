@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sign-In | AI-Based Language Proficiency System</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Custom Glassmorphism CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Identity Services (GSI) Client SDK -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+
+    <div class="auth-container">
+        <div class="glass-card">
+            
+            <!-- Loading Overlay with Animation -->
+            <div class="loading-overlay" id="loadingOverlay">
+                <div class="loading-spinner"></div>
+                <div style="font-size: 0.9rem; font-weight: 600; color: var(--text-primary);">
+                    Verifying Google Identity...
+                </div>
+            </div>
+
+            <!-- =============================================================
+                 STATE 1: SIGN IN VIEW
+                 ============================================================= -->
+            <div id="loginView">
+                <div class="auth-header">
+                    <div class="auth-logo-badge">
+                        <span>🤖</span>
+                    </div>
+                    <h1>Language AI Portal</h1>
+                    <p class="auth-subtitle">AI-Based Natural & Programming Language Proficiency System</p>
+                </div>
+
+                <!-- Google Identity Services Render Target -->
+                <div class="google-signin-wrapper">
+                    <div id="googleButtonDiv"></div>
+
+                    <!-- Custom Fallback / Enhanced Google Button -->
+                    <button type="button" class="btn-google-custom" id="btnCustomGoogle">
+                        <svg class="google-g-icon" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                        </svg>
+                        <span>Sign in with Google</span>
+                    </button>
+                </div>
+
+                <div class="auth-divider">
+                    <span>Developer Testing</span>
+                </div>
+
+                <!-- One-click Demo Tester -->
+                <div class="demo-box" id="btnDemoGoogle" title="Simulates a verified Google OAuth response">
+                    <div>
+                        <i class="bi bi-lightning-charge-fill me-1"></i>
+                        <span>Instant Google Auth Tester</span>
+                    </div>
+                    <span class="badge bg-primary bg-opacity-25 text-primary border border-primary border-opacity-50">One-Click</span>
+                </div>
+
+                <div style="margin-top: 26px; text-align: center; border-top: 1px solid var(--border-glass); padding-top: 18px;">
+                    <p style="font-size: 0.76rem; color: var(--text-muted); margin: 0;">
+                        <i class="bi bi-shield-lock-fill text-success me-1"></i> Passwords are never stored. Verified via Google OAuth 2.0.
+                    </p>
+                </div>
+            </div>
+
+            <!-- =============================================================
+                 STATE 2: AUTHENTICATED USER PROFILE VIEW
+                 ============================================================= -->
+            <div id="profileView" class="user-profile-view">
+                <div class="profile-avatar-wrapper">
+                    <img id="userAvatar" class="profile-avatar" src="" alt="Profile Picture">
+                    <span id="userRoleTag" class="profile-role-tag">STUDENT</span>
+                </div>
+
+                <h2 id="userName" class="profile-name">Authenticated User</h2>
+                <div id="userEmail" class="profile-email">user@gmail.com</div>
+
+                <div class="user-meta-grid">
+                    <div class="user-meta-row">
+                        <span class="user-meta-label"><i class="bi bi-google me-1"></i> Google ID:</span>
+                        <span id="metaGoogleId" class="user-meta-value">--</span>
+                    </div>
+                    <div class="user-meta-row">
+                        <span class="user-meta-label"><i class="bi bi-person-badge me-1"></i> Platform Role:</span>
+                        <span id="metaRole" class="user-meta-value">STUDENT</span>
+                    </div>
+                    <div class="user-meta-row">
+                        <span class="user-meta-label"><i class="bi bi-clock-history me-1"></i> Last Active:</span>
+                        <span id="metaLastLogin" class="user-meta-value">--</span>
+                    </div>
+                    <div class="user-meta-row">
+                        <span class="user-meta-label"><i class="bi bi-calendar-check me-1"></i> Member Since:</span>
+                        <span id="metaCreatedAt" class="user-meta-value">--</span>
+                    </div>
+                </div>
+
+                <button type="button" class="btn-logout" id="btnLogout">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span>Sign Out</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container-custom" id="toastContainer"></div>
+
+    <!-- Google Account Picker Modal (Forces explicit account selection) -->
+    <div class="account-picker-backdrop" id="accountPickerModal" style="display: none;">
+        <div class="account-picker-card">
+            <div class="account-picker-header">
+                <svg class="google-g-icon" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                </svg>
+                <h3>Choose an account</h3>
+                <p>to continue to Language AI Portal</p>
+            </div>
+
+            <!-- Dynamic Accounts List -->
+            <div class="account-picker-list" id="accountPickerList"></div>
+
+            <!-- Custom Account / Action Options -->
+            <div class="account-picker-footer">
+                <button type="button" class="btn-picker-action" id="btnUseAnotherAccount">
+                    <i class="bi bi-person-plus-fill me-2"></i> Use another account
+                </button>
+                <div id="customAccountForm" style="display: none; margin-top: 12px;">
+                    <input type="text" id="customAccountName" class="picker-input" placeholder="Full Name (e.g. John Doe)">
+                    <input type="email" id="customAccountEmail" class="picker-input mt-2" placeholder="Google Email (e.g. user@gmail.com)">
+                    <button type="button" class="btn-picker-submit mt-2" id="btnSubmitCustomAccount">
+                        <i class="bi bi-box-arrow-in-right me-1"></i> Sign in with this account
+                    </button>
+                </div>
+                <button type="button" class="btn-picker-cancel mt-3" id="btnCloseAccountPicker">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Controller -->
+    <script src="js/auth.js"></script>
+</body>
+</html>

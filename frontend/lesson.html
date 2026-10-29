@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LingoX | Interactive Lesson</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/lesson.css">
+</head>
+
+<body>
+
+    <!-- TOP BAR (ROYAL DEEP ESPRESSO) -->
+    <header class="topbar">
+        <button class="back-btn" id="backBtn" title="Back to Curriculum">
+            ←
+        </button>
+
+        <div class="lesson-info">
+            <span id="subjectIcon">🐍</span>
+            <div>
+                <h3 id="subjectName">Python</h3>
+                <p id="lessonTitle">Lesson 1</p>
+            </div>
+        </div>
+
+        <div class="progress-area">
+            <span id="progressText">1 / 5</span>
+            <div class="progress-bar">
+                <div id="progressFill"></div>
+            </div>
+        </div>
+
+        <div class="xp-box">
+            ⚡ <span id="xp">0</span> XP
+        </div>
+    </header>
+
+
+    <!-- MAIN LESSON ARENA -->
+    <main class="lesson-container">
+
+        <!-- STAGE / MODE SELECTOR BAR -->
+        <div class="lesson-mode-bar">
+            <button type="button" class="mode-tab active" id="tabTheory">
+                <span class="tab-icon">📖</span>
+                <span class="tab-label">1. Chapter Theory</span>
+            </button>
+            <button type="button" class="mode-tab" id="tabQuiz">
+                <span class="tab-icon">🎯</span>
+                <span class="tab-label">2. Practice Questions</span>
+            </button>
+        </div>
+
+        <!-- STAGE 1: CHAPTER THEORY & TUTORIAL -->
+        <section class="lesson-theory-section" id="lessonTheory">
+            <div class="theory-hero-card">
+                <div class="theory-hero-top">
+                    <div class="lesson-icon" id="introIcon">🐍</div>
+                    <div>
+                        <div class="theory-badges-row">
+                            <span class="lesson-tag" id="lessonTag">MODULE • W3SCHOOLS CURRICULUM</span>
+                            <span class="read-time-pill">⏱️ ~5 Min Read</span>
+                        </div>
+                        <h1 id="introTitle">Python Syntax & Variable Scope</h1>
+                        <p id="introText">
+                            Study the foundational theory, architectural rules, and executable code patterns before testing your comprehension.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DYNAMIC THEORY BODY -->
+            <div class="theory-body-card" id="theoryContainer">
+                <!-- Populated dynamically with rich theory and code examples by lesson.js -->
+            </div>
+
+            <!-- THEORY ACTION FOOTER -->
+            <div class="theory-footer-actions">
+                <button type="button" class="btn-theory-back" id="theoryBackBtn">
+                    ← Back to Curriculum
+                </button>
+                <button type="button" class="btn-start-quiz" id="startQuizBtn">
+                    Proceed to Practice Questions (5 MCQs) →
+                </button>
+            </div>
+        </section>
+
+        <!-- STAGE 2: PRACTICE QUESTIONS ARENA -->
+        <section class="lesson-content hidden" id="lessonContent">
+
+            <div class="quiz-top-bar">
+                <div class="question-number">
+                    QUESTION <span id="questionNumber">1</span> OF <span id="totalQuestions">5</span>
+                </div>
+                <button type="button" class="review-theory-link" id="reviewTheoryLink">
+                    📖 Review Theory
+                </button>
+            </div>
+
+            <!-- ADAPTIVE PERSONALIZATION BANNER -->
+            <div class="adaptive-badge-banner" id="adaptiveBanner" style="display: none; align-items: center; justify-content: space-between; background: rgba(46, 125, 50, 0.12); border: 1px solid rgba(46, 125, 50, 0.3); border-radius: 12px; padding: 10px 16px; margin-bottom: 16px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 1.1rem;">⚡</span>
+                    <div>
+                        <strong style="color: #4CAF50; font-size: 0.85rem;" id="adaptiveTitle">AI Adaptive Quiz</strong>
+                        <span style="font-size: 0.78rem; color: #94a3b8; display: block;" id="adaptiveSubtext">Personalized based on your performance</span>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <span class="badge" style="background: rgba(255, 167, 38, 0.2); color: #FFA726; border: 1px solid rgba(255, 167, 38, 0.4); padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 600;" id="adaptiveDiffBadge">Intermediate</span>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <h2 id="question">
+                    Question loading...
+                </h2>
+
+                <p class="question-description" id="questionDescription">
+                    Analyze the code and choose the correct answer from the choices below.
+                </p>
+
+                <!-- MCQ OPTIONS -->
+                <div class="options" id="options">
+                    <!-- Populated dynamically by lesson.js -->
+                </div>
+            </div>
+
+            <div class="feedback hidden" id="feedback">
+                <div class="feedback-icon" id="feedbackIcon">
+                    ✓
+                </div>
+
+                <div>
+                    <h3 id="feedbackTitle">
+                        Correct!
+                    </h3>
+
+                    <p id="feedbackText">
+                        Great job!
+                    </p>
+                </div>
+            </div>
+
+            <button class="next-btn hidden" id="nextBtn">
+                Continue →
+            </button>
+
+        </section>
+
+
+        <!-- COMPLETION SCREEN -->
+        <section class="completion hidden" id="completion">
+
+            <div class="completion-icon">
+                🏆
+            </div>
+
+            <h1>Module Mastered!</h1>
+
+            <p>
+                Magnificent achievement. You have completed this lesson and proven your comprehension.
+            </p>
+
+            <div class="reward-card">
+                <div>
+                    <span>Royal XP Earned</span>
+                    <strong id="earnedXpDisplay">+50 XP</strong>
+                </div>
+
+                <div>
+                    <span>Accuracy Rating</span>
+                    <strong id="accuracy">100%</strong>
+                </div>
+            </div>
+
+            <!-- ADAPTIVE PERSONALIZED FEEDBACK CARD -->
+            <div id="adaptiveFeedbackCard" style="display: none; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 12px; padding: 16px; margin: 18px 0; text-align: left;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                    <span style="font-size: 1.1rem;">💡</span>
+                    <h4 style="margin: 0; font-size: 0.95rem; color: #fff;">Personalized Improvement Guidance</h4>
+                </div>
+                <p id="adaptiveFeedbackText" style="font-size: 0.85rem; color: #cbd5e1; margin-bottom: 8px; line-height: 1.5;"></p>
+                <div id="adaptiveNextRec" style="font-size: 0.80rem; color: #64b5f6; font-weight: 600;"></div>
+            </div>
+
+            <!-- LOCK NOTIFICATION BANNER -->
+            <div id="nextLessonLockNotice" style="display: none; background: rgba(211, 47, 47, 0.08); border: 1px solid rgba(211, 47, 47, 0.25); border-radius: 10px; padding: 12px 18px; margin: 18px auto 8px auto; max-width: 520px; text-align: center; color: #b71c1c; font-size: 0.88rem;">
+                <span style="font-weight: 700;">🔒 Next Lesson Locked:</span>
+                <span id="nextLessonLockMsg"> Complete this chapter with at least 60% accuracy to unlock Chapter 2.</span>
+            </div>
+
+            <div class="completion-actions" style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 24px;">
+                <button type="button" class="continue-btn" id="continueBtn" style="padding: 13px 26px; border-radius: 8px; font-weight: 700; cursor: pointer; transition: all 0.2s; background: rgba(46, 125, 50, 0.12); color: #1B3B20; border: 1px solid rgba(46, 125, 50, 0.35);">
+                    Return to Curriculum →
+                </button>
+                <button type="button" class="continue-btn" id="nextLessonBtn" style="padding: 13px 26px; border-radius: 8px; font-weight: 700; cursor: pointer; transition: all 0.2s; background: linear-gradient(135deg, #1B5E20, #2E7D32); color: #ffffff; border: 1px solid #1B5E20; box-shadow: 0 4px 14px rgba(46, 125, 50, 0.25);">
+                    Next Lesson (Chapter 2) →
+                </button>
+            </div>
+
+        </section>
+
+        <!-- LOCKED LESSON OVERLAY SECTION -->
+        <section class="lesson-theory-section" id="lockedLessonSection" style="display: none; text-align: center; padding: 60px 30px;">
+            <div style="font-size: 56px; margin-bottom: 16px;">🔒</div>
+            <h2 style="font-family: var(--font-heading); font-size: 26px; color: var(--royal-brown-deep); margin-bottom: 12px;">Chapter Locked</h2>
+            <p id="lockedSectionMsg" style="font-size: 15px; color: var(--royal-beige-muted); max-width: 480px; margin: 0 auto 28px; line-height: 1.6;">
+                This lesson is currently locked. Complete the previous chapter to unlock it.
+            </p>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <button type="button" class="continue-btn" id="btnGoBackCurriculum" style="padding: 13px 26px; border-radius: 8px; font-weight: 700; cursor: pointer; background: rgba(46, 125, 50, 0.12); color: #1B3B20; border: 1px solid rgba(46, 125, 50, 0.35);">
+                    ← Return to Curriculum
+                </button>
+                <button type="button" class="continue-btn" id="btnGoPrereq" style="padding: 13px 26px; border-radius: 8px; font-weight: 700; cursor: pointer; background: linear-gradient(135deg, #1B5E20, #2E7D32); color: #ffffff; border: 1px solid #1B5E20; box-shadow: 0 4px 14px rgba(46, 125, 50, 0.25);">
+                    Go to Previous Chapter →
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/screen-time.js"></script>
+    <script src="js/lesson.js"></script>
+
+</body>
+</html>

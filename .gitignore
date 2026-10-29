@@ -1,0 +1,56 @@
+# Environment variables & secrets (CRITICAL: Never commit API keys)
+.env
+.env.local
+.env.*.local
+backend/.env
+*.pem
+*.key
+
+# SQLite Databases & Storage
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+backend/bhasha.db
+backups/
+
+# Backup files & redundant historical snapshots
+*.bak
+*.bak*
+*.pre_*
+*.old
+
+# Python artifacts & caches
+__pycache__/
+*/__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+dist/
+*.egg-info/
+
+# Scratch & temporary workspace dumps
+scratch/
+*.json.dump
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# IDE & OS settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+desktop.ini

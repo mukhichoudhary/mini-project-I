@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Mentor & Code Companion | LingoX</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/AiMentor.css">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+    <aside class="sidebar" id="sidebar">
+
+        <!-- LOGO -->
+        <div class="logo-area">
+            <img src="assets/logo/bhasha-logo.jpeg" alt="LingoX Logo">
+            <div class="logo-text">
+                <h2>Lingo<span>X</span></h2>
+                <p>Academy of Code</p>
+            </div>
+        </div>
+
+        <!-- NAVIGATION -->
+        <nav class="navigation">
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <p>Home</p>
+            </a>
+
+            <a href="roadmap.html" class="nav-item">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
+                <p>Roadmaps</p>
+            </a>
+
+            <a href="lesson.html" class="nav-item">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                <p>Learn</p>
+            </a>
+
+            <a href="projects.html" class="nav-item">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg></span>
+                <p>Projects</p>
+            </a>
+
+            <a href="achievements.html" class="nav-item">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+                <p>Achievements</p>
+            </a>
+
+            <a href="leaderboard.html" class="nav-item">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-2.34"/><path d="M18 14.66V17c0 .55-.45 1-1 1h-2c-.55 0-1-.45-1-1v-2.34"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></span>
+                <p>Leaderboard</p>
+            </a>
+
+            <a href="AiMentor.html" class="nav-item active">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 3.4 2.1 6.3 5.1 7.4L9 21l3.5-1.5L16 21l-.1-3.6C18.9 16.3 21 13.4 21 10a8 8 0 0 0-8-8z"/><circle cx="9" cy="10" r="1"/><circle cx="15" cy="10" r="1"/><path d="M9.5 14c.8.6 1.6.8 2.5.8s1.7-.2 2.5-.8"/></svg></span>
+                <p>AI Mentor</p>
+            </a>
+
+            <a href="settings.html" class="nav-item">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></span>
+                <p>Settings</p>
+            </a>
+        </nav>
+
+        <!-- SIDEBAR BOTTOM -->
+        <div class="sidebar-bottom">
+            <div class="streak-box">
+                <div class="streak-icon">🔥</div>
+                <div>
+                    <strong>7 Day Streak</strong>
+                    <small>Keep learning daily!</small>
+                </div>
+            </div>
+
+            <a href="login.html" class="signout-link">
+                <span>←</span>
+                <span>Sign Out</span>
+            </a>
+        </div>
+
+    </aside>
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div class="top-badge">
+                <span class="pulse-dot"></span>
+                <span>LINGOX INTELLIGENCE • ACTIVE SESSION</span>
+            </div>
+
+            <div class="top-right">
+                <div class="top-stat">
+                    🔥 <strong>7</strong>
+                </div>
+
+                <div class="top-stat">
+                    ⚡ <strong id="topXP">1,250 XP</strong>
+                </div>
+
+                <div class="profile">
+                    <div class="profile-avatar">H</div>
+                    <div>
+                        <strong id="learnerProfileName">Harshit</strong>
+                        <small>Level 4 Scholar</small>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- =================================================
+             AI MENTOR PAGE
+        ================================================== -->
+        <section class="mentor-page">
+
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+                <span class="page-tag">SOCRATIC AI PAIR PROGRAMMER</span>
+                <h1>AI Code Mentor</h1>
+                <p>Learn deeper, debug algorithms, and receive guided Socratic assistance at every step.</p>
+            </div>
+
+            <!-- =================================================
+                 MENTOR WORKSPACE
+            ================================================== -->
+            <div class="mentor-workspace">
+
+                <!-- CHAT SECTION -->
+                <div class="chat-section">
+
+                    <!-- CHAT HEADER -->
+                    <div class="chat-header">
+                        <div class="mentor-profile">
+                            <div class="mentor-avatar">🌿</div>
+                            <div>
+                                <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                                    <h3>LingoX Sage Mentor</h3>
+                                    <span class="gemini-status-badge" id="geminiStatusBadge" title="AI Generation Intelligence Status">
+                                        <span class="badge-dot"></span> <span id="geminiStatusText">Connecting Gemini...</span>
+                                    </span>
+                                </div>
+                                <span class="online-status">
+                                    <i></i> Online & ready to guide
+                                </span>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <button class="clear-chat-btn" id="clearChatBtn" title="Clear conversation">
+                                🗑 Clear
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- CHAT MESSAGES -->
+                    <div class="chat-messages" id="chatMessages">
+
+                        <!-- WELCOME MESSAGE -->
+                        <div class="message ai-message">
+                            <div class="message-avatar">🌿</div>
+                            <div class="message-content">
+                                <div class="message-bubble">
+                                    <p>Welcome back! 👋 I'm your LingoX Natural Code Mentor.</p>
+                                    <p>I'm equipped to guide you through Python fundamentals, Java object architecture, C++ memory pointers, and Technical English terminology.</p>
+                                    <p>What coding challenge would you like to master today?</p>
+                                </div>
+                                <span class="message-time">Just now</span>
+                            </div>
+                        </div>
+
+                        <!-- QUICK QUESTIONS -->
+                        <div class="quick-question-area">
+                            <span>Try exploring:</span>
+                            <div class="quick-questions">
+                                <button class="quick-question" data-question="Explain Java OOPs in simple terms">
+                                    Explain Java OOPs
+                                </button>
+                                <button class="quick-question" data-question="Help me learn Python from basics">
+                                    Learn Python Basics
+                                </button>
+                                <button class="quick-question" data-question="Give me a coding challenge">
+                                    Give me a challenge
+                                </button>
+                                <button class="quick-question" data-question="What should I learn next?">
+                                    What should I learn next?
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- TYPING INDICATOR -->
+                    <div class="typing-indicator" id="typingIndicator">
+                        <div class="typing-avatar">🌿</div>
+                        <div class="typing-bubble">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <!-- CHAT INPUT -->
+                    <div class="chat-input-area">
+                        <div class="input-wrapper">
+                            <textarea
+                                id="messageInput"
+                                placeholder="Ask your mentor anything about code, errors, or concepts..."
+                                rows="1"
+                            ></textarea>
+
+                            <button id="sendBtn" class="send-btn" title="Send message">
+                                ➤
+                            </button>
+                        </div>
+
+                        <div class="input-hint">
+                            Press <strong>Enter</strong> to send • <strong>Shift + Enter</strong> for a new line
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- MENTOR SIDEBAR TOOLS -->
+                <aside class="mentor-tools">
+
+                    <!-- SUBJECT CONTEXT CARD -->
+                    <div class="tool-card">
+                        <h4>📚 Active Learning Focus</h4>
+                        <div class="track-pills">
+                            <div class="track-pill-item subject-option active" data-subject="General">
+                                <span>🧠 General Concepts</span>
+                                <span class="status">Active</span>
+                            </div>
+                            <div class="track-pill-item subject-option" data-subject="Python">
+                                <span>🐍 Python Masterclass</span>
+                                <span class="status">Select</span>
+                            </div>
+                            <div class="track-pill-item subject-option" data-subject="Java">
+                                <span>☕ Java Fundamentals</span>
+                                <span class="status">Select</span>
+                            </div>
+                            <div class="track-pill-item subject-option" data-subject="C++">
+                                <span>⚙️ C++ Systems</span>
+                                <span class="status">Select</span>
+                            </div>
+                            <div class="track-pill-item subject-option" data-subject="English">
+                                <span>🇬🇧 Technical English</span>
+                                <span class="status">Select</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MENTOR ACTIONS -->
+                    <div class="tool-card">
+                        <h4>⚡ Quick Inquiries</h4>
+                        <div class="track-pills">
+                            <div class="track-pill-item mentor-action" data-action="Explain a topic">
+                                <span>💡 Explain a topic</span>
+                            </div>
+                            <div class="track-pill-item mentor-action" data-action="Debug my code">
+                                <span>🐞 Debug my snippet</span>
+                            </div>
+                            <div class="track-pill-item mentor-action" data-action="Give me practice questions">
+                                <span>🎯 Practice questions</span>
+                            </div>
+                            <div class="track-pill-item mentor-action" data-action="Create a study plan for me">
+                                <span>📅 Create study plan</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI ENGINE CONTROL -->
+                    <div class="tool-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <h4 style="margin: 0;">✨ AI Intelligence Engine</h4>
+                            <span class="badge-dot" style="background: #2E7D32;"></span>
+                        </div>
+                        <p style="font-size: 12px; color: var(--c-text-muted); margin-bottom: 10px;">
+                            Powered by Google Gemini generative models with Socratic coding pedagogy.
+                        </p>
+                        <div style="font-size: 12px; display: flex; flex-direction: column; gap: 6px; padding: 10px; background: rgba(46, 125, 50, 0.06); border-radius: 6px; border: 1px solid rgba(46, 125, 50, 0.15);">
+                            <div style="display: flex; justify-content: space-between;">
+                                <strong>Model:</strong>
+                                <span style="font-family: var(--font-mono); font-size: 11px;" id="sidebarGeminiModel">gemini-flash-latest</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <strong>Engine Status:</strong>
+                                <span id="sidebarGeminiStatus" style="color: var(--c-leaf); font-weight: 600;">Active</span>
+                            </div>
+                        </div>
+                        <div style="margin-top: 10px; font-size: 11px; color: var(--c-text-muted); line-height: 1.4; background: rgba(0,0,0,0.03); padding: 8px; border-radius: 6px;">
+                            🔒 <em>AI keys secured on backend (.env).</em>
+                        </div>
+                    </div>
+
+                    <!-- STUDY TIPS -->
+                    <div class="tool-card">
+                        <h4>🌱 Effective Practice Tips</h4>
+                        <ul class="tips-list">
+                            <li>Write the code by hand before pasting into solutions.</li>
+                            <li>Explain concepts aloud to test clarity.</li>
+                            <li>Practice 15 minutes every single day to nurture your streak.</li>
+                        </ul>
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/screen-time.js"></script>
+<script src="js/AiMentor.js"></script>
+<script>
+    // Personalize learner name from localStorage
+    document.addEventListener("DOMContentLoaded", () => {
+        const savedName = localStorage.getItem("bhasha_user_name");
+        if (savedName) {
+            const profileName = document.getElementById("learnerProfileName");
+            if (profileName) profileName.textContent = savedName;
+        }
+    });
+</script>
+
+</body>
+
+</html>

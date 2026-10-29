@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LingoX | Learning Path</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/subject.css">
+</head>
+
+<body>
+
+    <div class="subject-layout">
+
+        <!-- HEADER -->
+        <header class="subject-topbar">
+            <button class="back-btn" title="Back to Roadmaps">
+                ← Roadmaps
+            </button>
+
+            <div class="brand-mini">
+                <img src="assets/logo/bhasha-logo.jpeg" alt="LingoX Logo">
+                <span>LingoX <b>Academy</b></span>
+            </div>
+
+            <div class="user-badge">
+                🔥 <strong>7</strong> Day Streak
+            </div>
+        </header>
+
+        <!-- SUBJECT HERO -->
+        <section class="subject-hero">
+            <div class="hero-content">
+                <div class="subject-icon-box" id="subjectIcon">
+                    🐍
+                </div>
+
+                <div class="hero-details">
+                    <span class="royal-tag" id="royalTag">OFFICIAL ACADEMIC TRACK</span>
+                    <h1 id="introTitle">Python Learning Path</h1>
+                    <p id="introText">
+                        Master syntax, data structures, object-oriented concepts, and algorithmic thinking.
+                    </p>
+
+                    <div class="meta-row">
+                        <span class="meta-pill" id="subjectName">Python</span>
+                        <span class="meta-pill" id="lessonCount">8 Lessons</span>
+                        <span class="meta-pill gold">🏆 Imperial Certificate</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CURRICULUM LESSONS LIST -->
+        <main class="curriculum-container">
+
+            <!-- VISIBLE PROGRESS SUMMARY -->
+            <section class="progress-summary-card" id="progressSummaryCard" aria-label="Learning Path Progress Summary">
+                <div class="summary-top">
+                    <div class="summary-title-group">
+                        <span class="summary-kicker" id="summaryKicker">CURRICULUM TRACK PROGRESS</span>
+                        <h2 class="summary-heading" id="summaryHeading">Learning Path Progress</h2>
+                    </div>
+                    <div class="summary-badge" id="summaryBadge">
+                        <span class="summary-badge-pct" id="summaryBadgePct">0%</span>
+                        <span class="summary-badge-sub">Completed</span>
+                    </div>
+                </div>
+
+                <!-- Clear Progress Bar -->
+                <div class="summary-progress-bar-container">
+                    <div class="summary-progress-bar-track">
+                        <div class="summary-progress-bar-fill" id="summaryProgressBar" style="width: 0%;"></div>
+                    </div>
+                </div>
+
+                <!-- 4 Visible Metrics Calculated from Real Progress & Real Curriculum -->
+                <div class="summary-metrics-grid">
+                    <div class="metric-box">
+                        <span class="metric-label">Total Lessons</span>
+                        <strong class="metric-value" id="metricTotalLessons">8</strong>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">Completed</span>
+                        <strong class="metric-value completed-val" id="metricCompletedLessons">0</strong>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">Remaining</span>
+                        <strong class="metric-value remaining-val" id="metricRemainingLessons">8</strong>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">Completion</span>
+                        <strong class="metric-value percent-val" id="metricCompletionPct">0%</strong>
+                    </div>
+                </div>
+            </section>
+
+            <div class="curriculum-header">
+                <h2 id="curriculumHeaderTitle">Modules & Lesson Plan</h2>
+                <p id="curriculumHeaderDesc">Complete each module in sequence to unlock advanced projects and certifications.</p>
+            </div>
+
+            <div class="lesson-cards-list" id="lessonContainer">
+                <!-- Dynamically populated by js/subject.js -->
+            </div>
+        </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/screen-time.js"></script>
+    <script src="js/subject.js"></script>
+
+</body>
+
+</html>

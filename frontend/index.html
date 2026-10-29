@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LingoX | Choose Your Coding Language</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --c-forest-deep: #122415;
+            --c-forest-mid: #1B3B20;
+            --c-leaf-green: #2E7D32;
+            --c-leaf-hover: #256628;
+            --c-sage-light: #81C784;
+            --c-sage-tint: #E8F5E9;
+            --c-ivory-bg: #F6F3EB;
+            --c-ivory-card: #FDFBF7;
+            --c-white: #FFFFFF;
+            --c-border: #D7E3D8;
+            --c-text-primary: #1A281C;
+            --c-text-muted: #5D705F;
+            --font-display: "Outfit", sans-serif;
+            --font-body: "Plus Jakarta Sans", sans-serif;
+            --font-mono: "JetBrains Mono", monospace;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: var(--c-ivory-bg);
+            background-image:
+                linear-gradient(160deg, rgba(235, 229, 217, 0.15) 0%, rgba(226, 220, 206, 0.25) 100%),
+                url('assets/images/leaf_pattern_bg.jpg');
+            background-repeat: no-repeat, repeat;
+            background-size: auto, 320px 320px;
+            background-attachment: scroll, fixed;
+            color: var(--c-text-primary);
+            font-family: var(--font-body);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .onboarding-card {
+            position: relative;
+            width: 100%;
+            max-width: 680px;
+            background: linear-gradient(150deg, rgba(238, 246, 235, 0.95) 0%, rgba(228, 240, 225, 0.98) 100%), url('assets/images/leaf_pattern_bg.jpg') center/280px repeat;
+            border: 1px solid rgba(46, 125, 50, 0.22);
+            border-radius: 16px;
+            padding: 45px 40px;
+            text-align: center;
+            box-shadow: 0 10px 32px rgba(27, 59, 32, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+            overflow: hidden;
+        }
+
+        .onboarding-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1B5E20, #2E7D32, #66BB6A, #2E7D32);
+        }
+
+        .brand-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .brand-logo {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 2px solid var(--c-leaf-green);
+            object-fit: cover;
+        }
+
+        .brand-header h2 {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--c-forest-deep);
+        }
+
+        .brand-header h2 span {
+            color: var(--c-leaf-green);
+        }
+
+        .step-pill {
+            display: inline-block;
+            padding: 5px 14px;
+            background: var(--c-sage-tint);
+            border: 1px solid var(--c-sage-light);
+            color: var(--c-leaf-green);
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .onboarding-card h1 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--c-forest-deep);
+            margin-bottom: 8px;
+        }
+
+        .onboarding-card p.subtitle {
+            font-size: 15px;
+            color: var(--c-text-muted);
+            margin-bottom: 28px;
+        }
+
+        /* LANGUAGE OPTIONS */
+        .language-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            background: #FFFFFF;
+            border: 1px solid var(--c-border);
+            border-left: 3px solid #D7E3D8;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-option:hover {
+            border-color: var(--c-leaf-green);
+            border-left: 3px solid var(--c-leaf-green);
+            background: var(--c-sage-tint);
+            transform: translateX(3px);
+        }
+
+        .lang-option.selected {
+            border: 1px solid var(--c-leaf-green);
+            border-left: 4px solid var(--c-leaf-green);
+            background: var(--c-sage-tint);
+            box-shadow: 0 2px 8px rgba(46, 125, 50, 0.12);
+        }
+
+        .lang-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .lang-icon {
+            font-size: 28px;
+            width: 44px;
+            height: 44px;
+            background: var(--c-ivory-bg);
+            border: 1px solid var(--c-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lang-info strong {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 16px;
+            color: var(--c-forest-deep);
+        }
+
+        .lang-info span {
+            font-size: 12px;
+            color: var(--c-text-muted);
+        }
+
+        .lang-radio {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid var(--c-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .lang-option.selected .lang-radio {
+            background: var(--c-leaf-green);
+            border-color: var(--c-leaf-green);
+        }
+
+        /* COMMITMENT GOAL */
+        .goal-section {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .goal-section h3 {
+            font-family: var(--font-display);
+            font-size: 15px;
+            color: var(--c-forest-deep);
+            margin-bottom: 12px;
+        }
+
+        .goal-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .goal-btn {
+            padding: 12px 10px;
+            background: #FFFFFF;
+            border: 1px solid var(--c-border);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .goal-btn:hover {
+            border-color: var(--c-leaf-green);
+        }
+
+        .goal-btn.selected {
+            border: 2px solid var(--c-leaf-green);
+            background: var(--c-sage-tint);
+        }
+
+        .goal-btn strong {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 14px;
+            color: var(--c-forest-deep);
+        }
+
+        .goal-btn span {
+            font-size: 11px;
+            color: var(--c-text-muted);
+        }
+
+        /* SUBMIT BUTTON */
+        .submit-btn {
+            width: 100%;
+            padding: 15px 24px;
+            background: var(--c-forest-deep);
+            border: 1px solid var(--c-leaf-green);
+            color: #FFFFFF;
+            font-family: var(--font-display);
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            transition: background 0.15s;
+            margin-bottom: 18px;
+        }
+
+        .submit-btn:hover {
+            background: var(--c-forest-mid);
+        }
+
+        .login-link {
+            font-size: 13px;
+            color: var(--c-text-muted);
+        }
+
+        .login-link a {
+            color: var(--c-leaf-green);
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .onboarding-card {
+                padding: 30px 20px;
+            }
+
+            .goal-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="onboarding-card">
+
+        <!-- BRAND -->
+        <div class="brand-header">
+            <img src="assets/logo/bhasha-logo.jpeg" alt="LingoX" class="brand-logo">
+            <h2>Lingo<span>X</span></h2>
+        </div>
+
+        <span class="step-pill">STEP 1 OF 2 • CHOOSE YOUR PATH</span>
+
+        <h1>What do you want to learn?</h1>
+        <p class="subtitle">Select your primary programming language to tailor your interactive lessons.</p>
+
+        <!-- LANGUAGE OPTIONS -->
+        <div class="language-grid" id="langGrid">
+
+            <div class="lang-option selected" data-lang="Python" data-icon="🐍">
+                <div class="lang-left">
+                    <div class="lang-icon">🐍</div>
+                    <div class="lang-info">
+                        <strong>Python</strong>
+                        <span>AI, Automation, Data Science & Web Backend</span>
+                    </div>
+                </div>
+                <div class="lang-radio">✓</div>
+            </div>
+
+            <div class="lang-option" data-lang="Java" data-icon="☕">
+                <div class="lang-left">
+                    <div class="lang-icon">☕</div>
+                    <div class="lang-info">
+                        <strong>Java</strong>
+                        <span>Object-Oriented Architecture, Enterprise & Android</span>
+                    </div>
+                </div>
+                <div class="lang-radio"></div>
+            </div>
+
+            <div class="lang-option" data-lang="C++" data-icon="⚙️">
+                <div class="lang-left">
+                    <div class="lang-icon">⚙️</div>
+                    <div class="lang-info">
+                        <strong>C++</strong>
+                        <span>Game Engines, High-Performance Systems & Algorithms</span>
+                    </div>
+                </div>
+                <div class="lang-radio"></div>
+            </div>
+
+            <div class="lang-option" data-lang="English" data-icon="🇬🇧">
+                <div class="lang-left">
+                    <div class="lang-icon">🇬🇧</div>
+                    <div class="lang-info">
+                        <strong>Technical English</strong>
+                        <span>Code Reviews, Technical Documentation & Tech Interviews</span>
+                    </div>
+                </div>
+                <div class="lang-radio"></div>
+            </div>
+
+        </div>
+
+        <!-- DAILY COMMITMENT -->
+        <div class="goal-section">
+            <h3>Daily Learning Commitment</h3>
+            <div class="goal-options" id="goalOptions">
+                <div class="goal-btn" data-goal="5">
+                    <strong>Casual</strong>
+                    <span>5 min / day</span>
+                </div>
+                <div class="goal-btn selected" data-goal="15">
+                    <strong>Regular 🌿</strong>
+                    <span>15 min / day</span>
+                </div>
+                <div class="goal-btn" data-goal="30">
+                    <strong>Intense 🔥</strong>
+                    <span>30 min / day</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ACTION -->
+        <button class="submit-btn" id="continueBtn">
+            Continue to Academy →
+        </button>
+
+        <p class="login-link">
+            Already have an account? <a href="login.html" id="signInLink">Sign in directly</a>
+        </p>
+        <p class="login-link" style="margin-top: 6px;">
+            <a href="admin-login.html" style="font-size: 0.8rem; color: var(--c-text-muted); opacity: 0.85;">
+                🛡️ Administrator Portal &rarr;
+            </a>
+        </p>
+
+
+    </div>
+
+    <script src="js/api.js"></script>
+    <script>
+        // Interactive Selection Logic
+        let selectedLang = (window.BhashaAPI && window.BhashaAPI.getSelectedSubject)
+            ? (window.BhashaAPI.getSelectedSubject() || "Python")
+            : (localStorage.getItem("bhasha_chosen_language") || "Python");
+        let selectedGoal = localStorage.getItem("bhasha_daily_goal") || "15";
+
+        const signInLink = document.getElementById("signInLink");
+        function updateSignInUrl() {
+            if (signInLink) {
+                signInLink.href = `login.html?lang=${encodeURIComponent(selectedLang)}`;
+            }
+        }
+        updateSignInUrl();
+
+        const langOptions = document.querySelectorAll(".lang-option");
+        // Pre-select saved language if present in localStorage
+        const matchingOpt = Array.from(langOptions).find(o => (o.getAttribute("data-lang") || "").toLowerCase() === selectedLang.toLowerCase());
+        if (matchingOpt) {
+            langOptions.forEach(o => {
+                o.classList.remove("selected");
+                const radio = o.querySelector(".lang-radio");
+                if (radio) radio.textContent = "";
+            });
+            matchingOpt.classList.add("selected");
+            const radio = matchingOpt.querySelector(".lang-radio");
+            if (radio) radio.textContent = "✓";
+            selectedLang = matchingOpt.getAttribute("data-lang");
+            updateSignInUrl();
+        }
+
+        langOptions.forEach(opt => {
+            opt.addEventListener("click", () => {
+                langOptions.forEach(o => {
+                    o.classList.remove("selected");
+                    o.querySelector(".lang-radio").textContent = "";
+                });
+                opt.classList.add("selected");
+                opt.querySelector(".lang-radio").textContent = "✓";
+                selectedLang = opt.getAttribute("data-lang");
+                localStorage.setItem("bhasha_chosen_language", selectedLang);
+                localStorage.setItem("bhasha_current_track", selectedLang);
+                updateSignInUrl();
+            });
+        });
+
+        const goalBtns = document.querySelectorAll(".goal-btn");
+        const matchingGoal = Array.from(goalBtns).find(b => b.getAttribute("data-goal") === selectedGoal);
+        if (matchingGoal) {
+            goalBtns.forEach(b => b.classList.remove("selected"));
+            matchingGoal.classList.add("selected");
+        }
+
+        goalBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                goalBtns.forEach(b => b.classList.remove("selected"));
+                btn.classList.add("selected");
+                selectedGoal = btn.getAttribute("data-goal");
+                localStorage.setItem("bhasha_daily_goal", selectedGoal);
+            });
+        });
+
+        if (signInLink) {
+            signInLink.addEventListener("click", () => {
+                localStorage.setItem("bhasha_chosen_language", selectedLang);
+                localStorage.setItem("bhasha_current_track", selectedLang);
+                localStorage.setItem("bhasha_daily_goal", selectedGoal);
+            });
+        }
+
+        document.getElementById("continueBtn").addEventListener("click", async () => {
+            let normLang = selectedLang;
+            if (window.BhashaAPI && window.BhashaAPI.setSelectedSubject) {
+                try {
+                    normLang = await window.BhashaAPI.setSelectedSubject(selectedLang, true);
+                } catch (_) {}
+            } else {
+                localStorage.setItem("bhasha_chosen_language", selectedLang);
+                localStorage.setItem("bhasha_current_track", selectedLang);
+            }
+            localStorage.setItem("bhasha_daily_goal", selectedGoal);
+
+            const token = localStorage.getItem("bhasha_token");
+            if (token && token.trim()) {
+                window.location.href = `dashboard.html?subject=${encodeURIComponent(normLang || selectedLang)}`;
+            } else {
+                window.location.href = `login.html?lang=${encodeURIComponent(normLang || selectedLang)}`;
+            }
+        });
+    </script>
+
+</body>
+
+</html>

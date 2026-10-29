@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project Workspace | LingoX</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/project.css?v=2.1">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo-area">
+            <img src="assets/logo/bhasha-logo.jpeg" alt="LingoX Logo" style="width: 40px; height: 40px; border-radius: 6px; border: 1px solid #27472D;">
+            <span>Lingo<span>X</span></span>
+        </div>
+
+        <nav class="navigation">
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <p>Home</p>
+            </a>
+
+            <a href="roadmap.html" class="nav-item">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
+                <p>Roadmaps</p>
+            </a>
+
+            <a href="lesson.html" class="nav-item">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                <p>Learn</p>
+            </a>
+
+            <a href="projects.html" class="nav-item active">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg></span>
+                <p>Projects</p>
+            </a>
+
+            <a href="achievements.html" class="nav-item">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+                <p>Achievements</p>
+            </a>
+
+            <a href="leaderboard.html" class="nav-item">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-2.34"/><path d="M18 14.66V17c0 .55-.45 1-1 1h-2c-.55 0-1-.45-1-1v-2.34"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></span>
+                <p>Leaderboard</p>
+            </a>
+
+            <a href="AiMentor.html" class="nav-item">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 3.4 2.1 6.3 5.1 7.4L9 21l3.5-1.5L16 21l-.1-3.6C18.9 16.3 21 13.4 21 10a8 8 0 0 0-8-8z"/><circle cx="9" cy="10" r="1"/><circle cx="15" cy="10" r="1"/><path d="M9.5 14c.8.6 1.6.8 2.5.8s1.7-.2 2.5-.8"/></svg></span>
+                <p>AI Mentor</p>
+            </a>
+
+            <a href="settings.html" class="nav-item">
+                <span class="nav-icon"><svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></span>
+                <p>Settings</p>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="streak-box">
+                <span>🔥</span>
+
+                <div>
+                    <strong id="sidebarStreakText">0 Day Streak</strong>
+                    <small>Keep learning daily!</small>
+                </div>
+            </div>
+
+            <a href="login.html" style="color: #C8D8C9; font-size: 13px; padding: 6px 12px; display: block;">← Sign Out</a>
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="mobile-logo">
+
+                <div class="logo-icon">L</div>
+
+                <span>LingoX</span>
+
+            </div>
+
+
+            <div class="top-right">
+
+                <div class="top-stat">
+                    🔥 <strong id="topStreak">0</strong>
+                </div>
+
+                <div class="top-stat">
+                    ⭐ <strong id="topXp">0 XP</strong>
+                </div>
+
+                <div class="profile">
+
+                    <div class="profile-avatar" id="topAvatar">
+                        ?
+                    </div>
+
+                    <div>
+                        <strong id="topUserName">Scholar</strong>
+                        <small id="topUserLevel">Level 1</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= PROJECT PAGE ================= -->
+
+        <section class="project-page">
+
+
+            <!-- BACK -->
+
+            <button class="back-btn" id="backBtn">
+                ← Back to Projects
+            </button>
+
+
+            <!-- ================= PROJECT HEADER ================= -->
+
+            <div class="project-header">
+
+                <div class="project-heading">
+
+                    <div class="large-project-icon" id="projectIcon">
+                        🐍
+                    </div>
+
+                    <div>
+
+                        <div class="heading-meta">
+
+                            <span class="subject-badge" id="subjectBadge">
+                                Python
+                            </span>
+
+                            <span class="status-badge" id="statusBadge">
+                                Not Started
+                            </span>
+
+                            <div class="project-card-mini-bar" id="headerMiniBar" title="0% Complete">
+                                <div class="mini-track">
+                                    <div class="mini-fill" id="headerMiniFill" style="width: 0%;"></div>
+                                </div>
+                                <span class="mini-percent" id="headerMiniPercent">0%</span>
+                            </div>
+
+                        </div>
+
+                        <h1 id="projectTitle">
+                            Python Calculator
+                        </h1>
+
+                        <p id="projectDescription">
+                            Build a calculator using Python functions,
+                            operators and user input.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- XP -->
+
+                <div class="project-xp">
+
+                    <span>PROJECT REWARD</span>
+
+                    <strong>
+                        ⭐ <span id="projectXP">100</span> XP
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PROGRESS ================= -->
+
+            <div class="project-progress-card">
+
+                <div class="progress-top">
+
+                    <div>
+
+                        <span class="small-label">
+                            PROJECT PROGRESS
+                        </span>
+
+                        <h2>
+                            <span id="progressPercent">0</span>%
+                            Complete
+                        </h2>
+
+                    </div>
+
+                    <div class="progress-status-text"
+                         id="progressStatusText">
+                        Ready to start! 🚀
+                    </div>
+
+                </div>
+
+
+                <div class="big-progress-bar">
+
+                    <div
+                        id="progressBar"
+                        style="width: 0%">
+                    </div>
+
+                </div>
+
+
+                <div class="progress-controls">
+
+                    <button
+                        class="progress-btn"
+                        data-progress="0">
+                        0%
+                    </button>
+
+                    <button
+                        class="progress-btn"
+                        data-progress="25">
+                        25%
+                    </button>
+
+                    <button
+                        class="progress-btn"
+                        data-progress="50">
+                        50%
+                    </button>
+
+                    <button
+                        class="progress-btn"
+                        data-progress="75">
+                        75%
+                    </button>
+
+                    <button
+                        class="progress-btn"
+                        data-progress="100">
+                        100%
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= RELATED LESSON ================= -->
+
+            <div class="related-lesson">
+
+                <div class="related-icon">
+                    📚
+                </div>
+
+                <div class="related-content">
+
+                    <span>
+                        RELATED LESSON
+                    </span>
+
+                    <strong id="relatedLesson">
+                        Python • Functions
+                    </strong>
+
+                </div>
+
+                <button id="lessonBtn">
+                    View Lesson →
+                </button>
+
+            </div>
+
+
+            <!-- ================= WORKSPACE ================= -->
+
+            <div class="workspace">
+
+
+                <!-- LEFT -->
+
+                <div class="workspace-left">
+
+
+                    <!-- INSTRUCTIONS -->
+
+                    <div class="workspace-card">
+
+                        <div class="card-heading">
+
+                            <div>
+
+                                <span class="card-number">
+                                    01
+                                </span>
+
+                                <div>
+                                    <h2>Project Instructions</h2>
+
+                                    <p>
+                                        Understand what you need to build.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="instructions"
+                            id="instructions">
+                        </div>
+
+                    </div>
+
+
+                    <!-- NOTES -->
+
+                    <div class="workspace-card">
+
+                        <div class="card-heading">
+
+                            <div>
+
+                                <span class="card-number">
+                                    02
+                                </span>
+
+                                <div>
+                                    <h2>My Notes</h2>
+
+                                    <p>
+                                        Write down ideas, reminders or
+                                        things you learned.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <textarea
+                            id="projectNotes"
+                            class="notes-area"
+                            placeholder="Write your notes here...">
+                        </textarea>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- RIGHT -->
+
+                <div class="workspace-right">
+
+
+                    <!-- CODE EDITOR -->
+
+                    <div class="workspace-card code-card">
+
+                        <div class="code-header">
+
+                            <div>
+
+                                <span class="card-number">
+                                    03
+                                </span>
+
+                                <div>
+
+                                    <h2>Project Code</h2>
+
+                                    <p>
+                                        Write your solution here.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <span
+                                class="language-label"
+                                id="languageLabel">
+                                PYTHON
+                            </span>
+
+                        </div>
+
+
+                        <div class="editor">
+
+                            <div class="editor-top">
+
+                                <div class="window-buttons">
+
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+
+                                </div>
+
+                                <span id="fileName">
+                                    main.py
+                                </span>
+
+                            </div>
+
+
+                            <textarea
+                                id="codeEditor"
+                                spellcheck="false"
+                                placeholder="Start writing your code here..."></textarea>
+
+                        </div>
+
+
+                        <div class="editor-footer">
+
+                            <span id="saveStatus">
+                                Not saved
+                            </span>
+
+                            <button
+                                class="save-btn"
+                                id="saveBtn">
+                                💾 Save Project
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CHECKLIST -->
+
+                    <div class="workspace-card">
+
+                        <div class="card-heading">
+
+                            <div>
+
+                                <span class="card-number">
+                                    04
+                                </span>
+
+                                <div>
+
+                                    <h2>Project Checklist</h2>
+
+                                    <p>
+                                        Track what you have completed.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="checklist">
+
+                            <label class="check-item">
+
+                                <input
+                                    type="checkbox"
+                                    class="task-checkbox">
+
+                                <span>
+                                    Understand the problem
+                                </span>
+
+                            </label>
+
+
+                            <label class="check-item">
+
+                                <input
+                                    type="checkbox"
+                                    class="task-checkbox">
+
+                                <span>
+                                    Plan the solution
+                                </span>
+
+                            </label>
+
+
+                            <label class="check-item">
+
+                                <input
+                                    type="checkbox"
+                                    class="task-checkbox">
+
+                                <span>
+                                    Write the code
+                                </span>
+
+                            </label>
+
+
+                            <label class="check-item">
+
+                                <input
+                                    type="checkbox"
+                                    class="task-checkbox">
+
+                                <span>
+                                    Test the project
+                                </span>
+
+                            </label>
+
+
+                            <label class="check-item">
+
+                                <input
+                                    type="checkbox"
+                                    class="task-checkbox">
+
+                                <span>
+                                    Complete the final version
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= BOTTOM ACTIONS ================= -->
+
+            <div class="project-actions">
+
+                <button
+                    class="delete-btn"
+                    id="deleteBtn">
+                    🗑 Delete Saved Work
+                </button>
+
+
+                <button
+                    class="complete-btn"
+                    id="completeBtn">
+                    ✓ Mark Project Complete
+                </button>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= COMPLETION MODAL ================= -->
+
+    <div
+        class="modal-overlay"
+        id="completionModal">
+
+        <div class="completion-modal">
+
+            <div class="trophy">
+                🏆
+            </div>
+
+            <h2>Project Completed!</h2>
+
+            <p>
+                Great work! You successfully completed
+                this project.
+            </p>
+
+            <div class="reward">
+                ⭐ +<span id="rewardXP">100</span> XP
+            </div>
+
+            <button id="modalClose">
+                Continue
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/api.js"></script>
+    <script src="js/screen-time.js"></script>
+    <script src="js/project.js?v=2.1"></script>
+
+</body>
+</html>
